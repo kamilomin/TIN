@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozek Web House Company Demo</title>
+</head>
+<body>
+  <header>
+    <h1>Rozek Web House Company</h1>
+    <img src="../../images/logo.png" width="100" height="100" alt="Rozek Web House Company Logo">
+</header> 
+<nav>
+    <ul>
+        <li><a href="..\..\index1.html" >Strona główna</a></li>
+        <li><a href="..\employee\employee-list.html" >Pracownicy</a></li>
+        <li><a href="..\department\department-list.html">Departamenty </a></li>
+        <li><a href="..\order\order-list.html">Zamówienia </a></li>
+        <li><a href="..\orderHistory\orderHistory-list.html" >Historia zamówień </a></li>
+        <li><a href="..\makeOrderEmployee\makeOrderEmployee-list.html" class="active">Przypisz zamowienie </a></li>
+    </ul>
+</nav>
+<main>
+    <h2>Nowe przypisywanie zamówienia pracownikowi.</h2>
+    <form class="form">
+
+        
+            <label for="zamowienie">Zamówienie:<sup>*</sup></label>
+      
+            <div>
+
+            <select >
+                <option>WZ/01/2020</option>
+                <option>WZ/02/2020</option>
+                <option>WZ/03/2020</option>
+            </select>
+            
+            </div>
+
+            <label for="pracownik">Pracownik::<sup>*</sup></label>
+            <select>
+                <option>Jan Kowalski</option>
+                <option>Artur Arturowicz</option>
+                <option>jakiś gość </option>
+              </select>
+        
+            <label for="date">Pracuje od:<sup>*</sup></label>
+            <input type="text" name="date" value="10.10.2020" id="date"  />
+            <label for="date">Pracuje do:<sup>*</sup></label>
+            <input type="text" name="date" value="" id="date"  />
+        
+            <div class="form-buttons">
+                <input type="submit" value="Potwierdz" class="form-button-submit" />   
+                <a href="" class="form-button-cancel">Anuluj</a>
+            </div>
+          
+    </form>
+
+    
+</main>
+
+<footer>
+    Kamil Rogowski s17911
+</footer>
+
+</body>
+
+</html>
+</nav>

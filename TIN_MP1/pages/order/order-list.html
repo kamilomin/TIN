@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozek Web House Company Demo</title>
+</head>
+<body>
+  <header>
+    <h1>Rozek Web House Company</h1>
+    <img src="../../images/logo.png" width="100" height="100" alt="Rozek Web House Company Logo">
+</header> 
+<nav>
+    <ul>
+        <li><a href="..\..\index1.html" >Strona główna</a></li>
+        <li><a href="..\employee\employee-list.html" >Pracownicy</a></li>
+        <li><a href="..\department\department-list.html">Departamenty </a></li>
+        <li><a href="..\order\order-list.html" class="active">Zamówienia </a></li>
+        <li><a href="..\orderHistory\orderHistory-list.html" >Historia zamówień </a></li>
+        <li><a href="..\makeOrderEmployee\makeOrderEmployee-list.html" >Przypisz zamowienie </a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Lista Zamówień</h2>
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>NrZamowienia</th>
+                <th>Opis</th>
+                <th>DataPrzyjecia</th>
+                <th>Akcje</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>
+                    <ul class="list-actions">
+                        <li >
+                            <a href="order-details.html"class="list-actions-button-details" >Szczegóły</a>
+                        </li>
+                        <li >
+                            <a href="order-edit.html" class="list-actions-button-edit">Edytuj</a>
+                        </li>
+                        <li >
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>WZ/02/2020</td>
+                <td>Standardowe</td>
+                <td>2020-10-10</td>
+                <td>
+                    <ul class="list-actions">
+                        <li >
+                            <a href="order-details.html" class="list-actions-button-details" >Szczegóły</a>
+                        </li>
+                        <li >
+                            <a href="" class="list-actions-button-edit">Edytuj</a>
+                        </li>
+                        <li >
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <!-- Tu wstaw dodatkowe wiersze -->
+        </tbody>
+        </thead>
+    </table>
+
+           
+</main>
+
+<footerExtension>
+    <p><a  href="order-form.html" class="form-button-submit">Dodaj nowe zamówienie</a></p>
+</footerExtension>
+<footer>
+    Kamil Rogowski s17911
+</footer>
+
+</body>
+</html>

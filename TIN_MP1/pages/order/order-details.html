@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozek Web House Company Demo</title>
+</head>
+<body>
+  <header>
+    <h1>Rozek Web House Company</h1>
+    <img src="../../images/logo.png" width="100" height="100" alt="Rozek Web House Company Logo">
+</header> 
+<nav>
+    <ul>
+        <li><a href="..\..\index1.html" >Strona główna</a></li>
+        <li><a href="..\employee\employee-list.html" >Pracownicy</a></li>
+        <li><a href="..\department\department-list.html">Departamenty </a></li>
+        <li><a href="..\order\order-list.html" class="active">Zamówienia </a></li>
+        <li><a href="..\orderHistory\orderHistory-list.html" >Historia zamówień </a></li>
+        <li><a href="..\makeOrderEmployee\makeOrderEmployee-list.html" >Przypisz zamowienie </a></li>
+    </ul>
+</nav>
+<main>
+    <h2>Szczegoly Zamowienia</h2>
+    <form class="form">
+ 
+            <label for="nrZamowienia">nrZamowienia:<sup>*</sup></label>
+            <input type="text" name="nrZamowienia" value="WZ/01/2020" id="nrZamowienia" disabled />
+        
+        
+            <label for="opis">Opis:<sup>*</sup></label>
+            <input type="text" name="opis" value="Bardzo pilne" id="opis" disabled />
+           
+            <label for="date">Date:<sup>*</sup></label>
+            <input type="text" name="date" value="11.10.2020" id="date" disabled />
+        
+
+           
+            <div class="form-buttons">
+                <a href="order-edit.html" class="list-actions-button-edit">Edytuj</a> 
+            </div>
+        
+        
+          
+    </form>
+   
+
+
+   
+    <form>
+
+        <h2>Historia zamówienia</h2>
+    
+        <table class="table-list">
+        <thead>  
+            <tr>
+                <th>NrZamowienia</th>
+                <th>Opis</th>
+                <th>DataPrzyjecia</th>
+                <th>Przypisany Pracownik</th>
+                <th>Pracuje od</th>
+                <th>Pracuje do</th>
+               
+            </tr>
+
+            <tbody>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>-----</td>
+                <td>-----</td>
+                <td>----</td>
+            </tbody>
+                
+            <tbody>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>Jan Nowak</td>
+                <td>2020-10-10</td>
+                <td>nadal</td>
+            </tbody>
+
+    </form>
+</main>
+
+<footer>
+    Kamil Rogowski s17911
+</footer>
+
+</body>
+
+</html>
