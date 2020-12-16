@@ -13,9 +13,9 @@ Uruchom kontener dockera
 ```
 $ docker-compose up
 ```
-Zamiast dockera możesz użyć po prostu bazy danych MySql na porcie 3306, jeżeli występują problemy sprawdź czy na pewno masz stworzony schemat bazy o nazwie tin-example-sequelize
+	Zamiast dockera możesz użyć po prostu bazy danych MySql na porcie 3306, jeżeli występują problemy sprawdź czy na pewno masz stworzony schemat bazy o nazwie tin-example-sequelize
 nazwa: root hasło: toor
-#Możesz je zmienić w: 
+	Możesz je zmienić w: 
 cd ../tin_projekt_krogowski_s17911/backend/config/sequelize
 
 Przejdź do katalogu głównego projektu
