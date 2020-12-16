@@ -1,0 +1,107 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+         <h2><%= pageTitle %></h2>
+         <!-- PO CO TO SKORO NIE DZIALA ????? -->
+         <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+      
+         <form class="form" method="post" action="<%=formAction%>" novalidate >
+
+        <!-- <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();"> -->
+<!-- WŁĄĆZ LINIJKE WYZEJ POTEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM -->
+
+
+            <!-- <input type="text" name="firstName" id="firstName"> -->
+            <!-- <label for="firstName">Imię:</label> -->
+            <!-- <label for="firstName">Imię:<abbr title="required" aria-label="required">*</abbr></label> -->
+            <!-- <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków" /> -->
+            <!-- place holder wystwietla sie w srodku pola do pisania text  -->
+           
+           
+            <!--  potrzebne to ejst by id wysyłało się z innymi poalmi formularza -->
+               
+            <input type="hidden" name="_id" value="<%= emp._id %>">
+
+            <label for="firstName">Imię:<abbr title="required" aria-label="required">*</abbr></label>   
+            <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków" value="<%= emp.firstName %>" 
+                class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+
+            <span id="errorFirstName" class="errors-text">
+                <% if (formMode == 'edit'|| formMode == 'createNew') { %> 
+                 <% if (validationErrors.find(e => e.path.includes('firstName'))) { %>
+                    <%= validationErrors.find(e => e.path.includes('firstName')).message %>
+                <% } %>
+                <% } %>
+            </span>
+            
+            <label for="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków" value="<%= emp.lastName %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorLastName" class="errors-text"></span>
+                
+            <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="date" id="date"  />
+            <div> <span id="errorDate" class="errors-text"></span> Będzie w krotce, teraz nie uzywac !</div>
+        
+            <label for="email">Email:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= emp.email %>"  
+            <div> <span id="errorEmail" class="errors-text"> </span> Sprawdz dlaczego jak email sie powtarza to nie paktualizuje SPRAWDZIŁEM W MOEDEL SEQUALIZE JEST UNIQUE TRUE</div>
+
+           
+            <div class="form-buttons" >
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode == 'showDetails') { %>
+                    <div class="section-buttons">
+                        <a href="/employees/edit/<%= emp._id %>" class="button-edit">Edytuj</a>
+                    </div>
+                <% } %>
+               
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                    <a class="form-button-cancel" href="/employees">Anuluj</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/employees">Powrót</a>
+                <% } %>
+            </div>
+			
+			  
+        </form>
+        <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+            <h2>
+                Szczegóły zatrudnienia
+            </h2>
+            <table class="table-list">
+                <thead>
+                <tr>
+                    <th>Departament</th>
+                    <th>Pensja</th>
+                    <th>Data od</th>
+                    <th>Data do</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (let e of emp.employments) { %>
+                    <tr>
+                        <td><a href="/departments/details/<%= e.department._id %>"><%= e.department.name %></a></td>
+                        <td><%= e.salary %></td>
+                        <!-- Musimy też sformatować datę z JavaScriptowego obiektu Date -->
+                        <td><%= e.dateFrom.toISOString().split('T')[0] %></td> 
+                        <td><%= e.dateTo ? e.dateTo.toISOString().split('T')[0] : '' %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        <% } %>
+
+        <!-- <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/employees">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/employees">Powrót</a>
+            <% } %>
+        </div> -->
+
+    </main>
+

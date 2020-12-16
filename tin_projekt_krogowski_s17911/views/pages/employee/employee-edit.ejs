@@ -1,0 +1,59 @@
+<%- include('../../fragments/header.ejs') %>
+            <main>
+                <h2>Edytuj szczegóły istniejącego pracownika</h2>
+                <form class="form" novalidate onsubmit="return validateForm();">
+                    <!-- <input type="text" name="firstName" id="firstName"> -->
+                    <!-- <label for="firstName">Imię:</label> -->
+                    <!-- <label for="firstName">Imię:<sup>*</sup></label> -->
+        
+                    
+                        <label for="firstName">Imię:<abbr title="required" aria-label="required">*</abbr></label>
+                        <input type="text" name="firstName" value="Jan" id="firstName" placeholder="2-60 znaków" />
+                        <span id="errorFirstName" class="errors-text"></span>
+                    
+                        <label for="lastName">Nazwisko:<abbr title="required" aria-label="required">*</abbr></label>
+                        <input type="text" name="lastName" value="Kowalski" id="lastName"  />
+                        <span id="errorLastName" class="errors-text"></span>
+            
+                    
+                        <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
+                        <input type="date" name="date" value="2020-10-11" id="date"  />
+                        <span id="errorDate" class="errors-text"></span>
+                    
+                        <label for="email">Email:<abbr title="required" aria-label="required">*</abbr></label>
+                        <input type="email" name="email" value="jan.kowalski@rozek.whc.com" id="email" placeholder="5-60 znaków" />
+                        <span id="errorEmail" class="errors-text"></span>
+
+                        <div class="form-buttons">
+                            <p id="errorsSummary" class="errors-text"></p>
+                            <input type="submit" value="Potwierdz" class="form-button-submit" />   
+                            <a href="/employees" class="form-button-cancel">Anuluj</a>
+                        </div>
+                      
+                </form>
+        
+                <h2>Szczegóły zatrudnienia</h2>
+                
+                <table class="table-list">
+                    <thead>  
+                        <tr>
+                            <th>Departament</th>
+                            <th>Pensja</th>
+                            <th>Data od</th>
+                            <th>Data do</th>
+                        </tr>
+        
+                        <tbody>
+                            <td>Pracownik Magazynu</td>
+                            <td>2300</td>
+                            <td>2012-10-10</td>
+                            <td> do teraz</td>
+                            </tbody>
+                        
+                       
+                    </thead>
+                </table>
+              
+            </main>
+        
+            <%- include('../../fragments/footer.ejs') %>

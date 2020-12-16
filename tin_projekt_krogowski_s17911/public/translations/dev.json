@@ -1,0 +1,8 @@
+{
+    "main.header.welcome": "Welcome",
+    "main.page.title": "{{title}} is running!",
+    "main.page.section.languages.title": "Languages",
+    "main.page.section.languages.subtitle": "Lets try to change language!",
+    "main.page.section.languages.english": "English",
+    "main.page.section.languages.french": "Français"
+  }

@@ -1,0 +1,92 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Aktualna lista zatrudnienia</h2>
+
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Departament</th>
+                <th>Pensja</th>
+                <th>Akcje</th>
+            </tr>
+        <tbody>
+             
+            <% for (let employmentSC of employmentSCs ) { if(employmentSC.dateTo==null){%>
+              
+<!-- chuj wie jak to zrobic nie 
+    rob [i] bo wtedy wyciagasz nie pokolei i 
+    mozesz trafic w puste miejsce w tablicy -->
+    
+            <tr>
+                <td><%= employmentSC.employee.firstName %></td>
+                <td><%= employmentSC.department.name %></td>
+                <td><%= employmentSC.salary %></td>
+                <td>
+                    <ul class="list-actions">
+                        <li><a href="/employments/details/<%=employmentSC._id%>"
+                                class="list-actions-button-details">Szczegóły</a></li>
+                        <li><a href="/employments/edit/<%=employmentSC._id%>"
+                                class="list-actions-button-edit">Edytuj</a></li>
+                        <li><a href="/employments/delete/<%=employmentSC._id%>"
+                                class="list-actions-button-delete">Usuń</a></li>
+                    </ul>
+                </td>
+            </tr>
+           
+            <%} } %>
+        </tbody>
+        </thead>
+    </table>
+    <br>
+    <br>
+    <h2>Zakończona lista zatrudnienia</h2>
+    <label for="opis"> To jest archiwum umów. Były one w przeszłości ale już się skończyły. </label>
+
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Departament</th>
+                <th>Pensja</th>
+                <th>Akcje</th>
+            </tr>
+        <tbody>
+             
+            <% for (let employmentSC of employmentSCs ) { if(employmentSC.dateTo!=null){%>
+              
+<!-- chuj wie jak to zrobic nie 
+    rob [i] bo wtedy wyciagasz nie pokolei i 
+    mozesz trafic w puste miejsce w tablicy -->
+    
+            <tr>
+                <td><%= employmentSC.employee.firstName %></td>
+                <td><%= employmentSC.department.name %></td>
+                <td><%= employmentSC.salary %></td>
+                <td>
+                    <ul class="list-actions">
+                        <li><a href="/employments/details/<%=employmentSC._id%>"
+                                class="list-actions-button-details">Szczegóły</a></li>
+                        <li><a href="/employments/edit/<%=employmentSC._id%>"
+                                class="list-actions-button-edit">Edytuj</a></li>
+                        <li><a href="/employments/delete/<%=employmentSC._id%>"
+                                class="list-actions-button-delete">Usuń</a></li>
+                    </ul>
+                </td>
+            </tr>
+           
+            <%} } %>
+        </tbody>
+        </thead>
+    </table>
+   
+    
+</main>
+
+
+<footerExtension>
+    <p><a href="/employments/add" class="form-button-submit">Dodaj nowe zatrudnienie</a></p>
+</footerExtension>
+<%- include('../../fragments/footer.ejs') %>
+

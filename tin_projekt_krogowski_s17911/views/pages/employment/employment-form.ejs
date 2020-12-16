@@ -1,0 +1,65 @@
+<%- include('../../fragments/header.ejs') %>
+
+
+  <main>
+    <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+      
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        
+        <input type="hidden" name="_id" value="<%= employmentSC._id %>">
+
+        <label for="Pracownik"> Pracownik </label>
+        <select id="employee" name="emp_id" required <%= (formMode == 'showDetails' ) || (formMode == 'edit' ) ? 'disabled' : ''%> >
+            <option value="" selected>--- Wybierz pracownika ---</option>
+            <%  for (let i=0; i<allEmps.length; i++) { let emp = allEmps[i]; %>
+                <option value="<%= emp._id %>" label="<%= emp.firstName + ' ' + emp.lastName %>"
+                    <%= (employmentSC._id && emp._id.toString() == employmentSC.employee._id.toString()) ? 'selected' : ''%>></option>
+            <% } %>
+        </select>
+        <span id="errorxD" class="errors-text"></span>
+
+        <label for="Departament"> Departament </label>
+        <input type="hidden" name="dept_id" id="dept_id" placeholder="np. 50 000" value="<%= 1 %>">
+        Nie dziala length przy allDepts dziadostwo, teraz ustawione na sztywno dept._id = 1
+        <span id="errorxD" class="errors-text"></span>
+
+        <label for="Pensja"> Pensja </label>
+        <input type="salary" name="salary" id="salary" placeholder="np. 50 000" value="<%= employmentSC.salary %>" <%= (formMode == 'showDetails' ) ? 'disabled' : ''%>>
+        <div> <span id="errorDate" class="errors-text"></span>zrob to</div>
+
+        <label for="dateFrom">Data od:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="date" name="dateFrom" id="dateFrom" value="<%= employmentSC.dateFrom.toISOString().split('T')[0] %>"  <%= (formMode == 'showDetails' )  ? 'disabled' : ''%>/>
+        <div> <span id="errorDate" class="errors-text"></span></div>
+        
+        <label for="dateTo">Data do:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="date" name="dateTo" id="dateTo" <% if(employmentSC.dateTo) {%> value="<%= employmentSC.dateTo.toISOString().split('T')[0] %>" <%}%> <%= (formMode == 'showDetails' ) ? 'disabled' : ''%> />
+        <div> <span id="errorDate" class="errors-text"></span></div>
+    
+
+
+        <div class="form-buttons" >
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode == 'showDetails') { %>
+                <div class="section-buttons">
+                    <a href="/employments/edit/<%= employmentSC._id %>" class="button-edit">Edytuj</a>
+                </div>
+            <% } %>
+            
+            <% if (formMode != 'showDetails') { %>
+                <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                <a class="form-button-cancel" href="/employments">Anuluj</a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/employments">Powrót</a>
+            <% } %>
+        </div>
+
+    </form>
+
+    </main>
+   
+    
+<footerExtension>
+    <p><a  href="/employments/add"  class="form-button-submit">Dodaj nowe zatrudnienie</a></p>
+</footerExtension>
+<%- include('../../fragments/footer.ejs') %>
+
