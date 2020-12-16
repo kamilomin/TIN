@@ -5,10 +5,10 @@ Definicja projektu i diagram klas znajduje się w TIN_MP1
 Pełna wersja strony znajduje się w tin_projekt_krogowski_s17911
 
 ##Wygląd strony
-![Image](images/stronaGlowna.png){:height="50%" width="50%"}
-![Image](images/stronaPracownicy.png){:height="50%" width="50%"}
-![Image](images/stronaZatrudnienie.png){:height="50%" width="50%"}
-![Image](images/stronaEdycjaDepartamentu.png){:height="50%" width="50%"}
+![Image](images/stronaGlowna.png)<!-- .element height="50%" width="50%" -->
+![Image](images/stronaPracownicy.png)<!-- .element height="50%" width="50%" -->
+![Image](images/stronaZatrudnienie.png)<!-- .element height="50%" width="50%" -->
+![Image](images/stronaEdycjaDepartamentu.png)<!-- .element height="50%" width="50%" -->
 
 ## Uruchomienie
 Przejdź do katalogu backend 
