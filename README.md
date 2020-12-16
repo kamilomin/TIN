@@ -8,7 +8,7 @@ Pełna wersja strony znajduje się w tin_projekt_krogowski_s17911
 ![Image](images/stronaGlowna.png)
 ![Image](images/stronaPracownicy.png)
 ![Image](images/stronaZatrudnienie.png)
-
+![Image](images/stronaEdycjaDepartamentu.png)
 
 ## Uruchomienie
 Przejdź do katalogu backend 
