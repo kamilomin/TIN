@@ -122,7 +122,9 @@ main h2 {
 }
 .list-actions-button-details,
 .list-actions-button-edit,
-.list-actions-button-delete {
+.list-actions-button-delete,
+.list-actions-button-confirm
+ {
     display: inline-block;
     width: 75px;
     padding: 0.25rem 0.5rem;
@@ -134,8 +136,10 @@ main h2 {
     font-size: 0.8rem;
 }
 
+
 .list-actions-button-details,
-.list-actions-button-edit {
+.list-actions-button-edit,
+.list-actions-button-confirm {
     margin-right: 1rem;
 }
 .list-actions-button-details {
@@ -159,8 +163,12 @@ main h2 {
 .list-actions-button-delete:hover {
     background-color: #e74c3c;
 }
-
-
+.list-actions-button-confirm {
+    background-color: #4ae73c;
+}
+.list-actions-button-confirm:hover {
+    background-color: #64b933;
+}
 .button-add {
     border: none;
     border-radius: 5px;
@@ -240,6 +248,7 @@ abbr[title='required'] {
 .list-actions-button-details,
 .list-actions-button-edit,
 .list-actions-button-delete,
+.list-actions-button-confirm,
 .button-add,
 .form-button-submit,
 .form-button-cancel {
