@@ -28,11 +28,13 @@
         <div> <span id="errorDate" class="errors-text"></span>zrob to</div>
 
         <label for="dateFrom">Data od:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="date" name="dateFrom" id="dateFrom" value="<%= employmentSC.dateFrom.toISOString().split('T')[0] %>"  <%= (formMode == 'showDetails' )  ? 'disabled' : ''%>/>
+        <input type="date" name="dateFrom" id="dateFrom" 
+        <% if(employmentSC.dateFrom) {%> value="<%= employmentSC.dateFrom.toISOString().split('T')[0] %>"<%}%>  <%= (formMode == 'showDetails' ) ? 'disabled' : ''%>/>
         <div> <span id="errorDate" class="errors-text"></span></div>
         
         <label for="dateTo">Data do:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="date" name="dateTo" id="dateTo" <% if(employmentSC.dateTo) {%> value="<%= employmentSC.dateTo.toISOString().split('T')[0] %>" <%}%> <%= (formMode == 'showDetails' ) ? 'disabled' : ''%> />
+        <input type="date" name="dateTo" id="dateTo" 
+        <% if(employmentSC.dateTo) {%> value="<%= employmentSC.dateTo.toISOString().split('T')[0] %>" <%}%> <%= (formMode == 'showDetails' ) ? 'disabled' : ''%>/>
         <div> <span id="errorDate" class="errors-text"></span></div>
     
 

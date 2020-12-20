@@ -36,12 +36,12 @@ exports.showEmploymentList = (req, res, next) => {
 exports.showAddEmploymentForm = (req, res, next) => {
     let allEmps, allDepts;
     EmployeeRepository.getEmployees()
-        .then(emps => {
-            allEmps = emps;
+        .then(emp => {
+            allEmps = emp;
             return DepartmentRepository.getDepartments();
         })
-        .then(depts => {
-            allDepts = depts;
+        .then(dept => {
+            allDepts = dept;
             res.render('pages/employment/employment-form', {
                 employmentSC: {},
                 formMode: 'createNew',
