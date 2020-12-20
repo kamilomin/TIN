@@ -36,12 +36,12 @@ exports.showEmploymentList = (req, res, next) => {
 exports.showAddEmploymentForm = (req, res, next) => {
     let allEmps, allDepts;
     EmployeeRepository.getEmployees()
-        .then(emp => {
-            allEmps = emp;
+        .then(emps => {
+            allEmps = emps;
             return DepartmentRepository.getDepartments();
         })
-        .then(dept => {
-            allDepts = dept;
+        .then(depts => {
+            allDepts = depts;
             res.render('pages/employment/employment-form', {
                 employmentSC: {},
                 formMode: 'createNew',
@@ -50,7 +50,7 @@ exports.showAddEmploymentForm = (req, res, next) => {
                 pageTitle: 'Nowe zatrudnienia',
                 btnLabel: 'Dodaj zatrudnienie',
                 formAction: '/employments/add',
-                navLocation: 'employment'
+                navLocation: 'employmentSC'
             });
         });
 }
@@ -59,16 +59,18 @@ exports.showAddEmploymentForm = (req, res, next) => {
 // }
 exports.showEmploymentDetails = (req, res, next) => {
     let allEmps, allDepts;
+    const employmentSCId = req.params.employmentSCId;
     EmployeeRepository.getEmployees()
     .then(emps => {
         allEmps = emps;
-        return DepartmentRepository.getDepartment();
+        return DepartmentRepository.getDepartments();
     })
     .then(depts => {
         allDepts = depts;
-    });
-    const employmentSCId = req.params.employmentSCId;
-    EmploymentRepository.getEmploymentById(employmentSCId)
+    
+    
+    return EmploymentRepository.getEmploymentById(employmentSCId)
+    })
         .then(employmentSC => {
             res.render('pages/Employment/employment-form', {
                 employmentSC: employmentSC,
@@ -88,6 +90,7 @@ exports.showEmploymentDetails = (req, res, next) => {
 //exports.showEditEmploymentForm = (req, res, next) => {
 exports.showEmploymentEdit = (req, res, next) => {
     let allEmps, allDepts;
+    const employmentSCId = req.params.employmentSCId;
     EmployeeRepository.getEmployees()
     .then(emps => {
         allEmps = emps;
@@ -95,9 +98,8 @@ exports.showEmploymentEdit = (req, res, next) => {
     })
     .then(depts => {
         allDepts = depts;
-    });
-     const employmentSCId = req.params.employmentSCId;
-    EmploymentRepository.getEmploymentById(employmentSCId)
+        return  EmploymentRepository.getEmploymentById(employmentSCId)
+    })
         .then(employmentSC => {
             res.render('pages/Employment/Employment-form', {
                 employmentSC: employmentSC,

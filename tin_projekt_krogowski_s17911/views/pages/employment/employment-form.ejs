@@ -19,13 +19,18 @@
         <span id="errorxD" class="errors-text"></span>
 
         <label for="Departament"> Departament </label>
-        <input type="hidden" name="dept_id" id="dept_id" placeholder="np. 50 000" value="<%= 1 %>">
-        Nie dziala length przy allDepts dziadostwo, teraz ustawione na sztywno dept._id = 1
+        <select id="department" name="dept_id" required <%= (formMode == 'showDetails' ) || (formMode == 'edit' ) ? 'disabled' : ''%> >
+            <option value="" selected>--- Wybierz departament ---</option>
+            <%  for (let i=0; i<allDepts.length; i++) { let dept = allDepts[i]; %>
+                <option value="<%= dept._id %>" label="<%= dept.name %>"
+                    <%= (employmentSC._id && dept._id.toString() == employmentSC.department._id.toString()) ? 'selected' : ''%>></option>
+            <% } %>
+        </select>
         <span id="errorxD" class="errors-text"></span>
 
         <label for="Pensja"> Pensja </label>
         <input type="salary" name="salary" id="salary" placeholder="np. 50 000" value="<%= employmentSC.salary %>" <%= (formMode == 'showDetails' ) ? 'disabled' : ''%>>
-        <div> <span id="errorDate" class="errors-text"></span>zrob to</div>
+        <div> <span id="errorDate" class="errors-text"></span>zrob walidacje tego i wyzej selektow</div>
 
         <label for="dateFrom">Data od:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="date" name="dateFrom" id="dateFrom" 
@@ -60,8 +65,6 @@
     </main>
    
     
-<footerExtension>
-    <p><a  href="/employments/add"  class="form-button-submit">Dodaj nowe zatrudnienie</a></p>
-</footerExtension>
+
 <%- include('../../fragments/footer.ejs') %>
 

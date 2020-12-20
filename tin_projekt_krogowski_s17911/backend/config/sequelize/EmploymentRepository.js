@@ -34,7 +34,10 @@ exports.getEmploymentById = (employmentId) => {
 
 exports.createEmployment = (data) => {
     console.log(JSON.stringify(data));
-
+    if(error) {
+        return Promise.reject(error);
+    }
+    if(!data.dateTo){data.dateTo = 'null'} // to nie pomga z null data w zatrudnieniu
     return Employment.create({
         emp_id: data.emp_id,
         dept_id: data.dept_id,

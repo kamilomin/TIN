@@ -18,7 +18,8 @@ const Employment = sequelize.define('Employment', {
    },
     dateTo: {
        type: Sequelize.DATE,
-       allowNull: true
+       allowNull: true,
+       defaultValue: null  //to nie pomaga
    },
    emp_id: {
        type: Sequelize.INTEGER,
