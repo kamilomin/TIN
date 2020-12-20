@@ -1,0 +1,61 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista Zamówień</h2>
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>NrZamowienia</th>
+                <th>Opis</th>
+                <th>DataPrzyjecia</th>
+                <th>Akcje</th>
+            </tr>
+        <tbody>
+            <tr>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>
+                    <ul class="list-actions">
+                        <li >
+                            <a href="orders/details/1"class="list-actions-button-details" >Szczegóły</a>
+                        </li>
+                        <li >
+                            <a href="orders/edit/1" class="list-actions-button-edit">Edytuj</a>
+                        </li>
+                        <li >
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>WZ/02/2020</td>
+                <td>Standardowe</td>
+                <td>2020-10-10</td>
+                <td>
+                    <ul class="list-actions">
+                        <li >
+                            <a href="orders/details/1" class="list-actions-button-details" >Szczegóły</a>
+                        </li>
+                        <li >
+                            <a href="" class="list-actions-button-edit">Edytuj</a>
+                        </li>
+                        <li >
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <!-- Tu wstaw dodatkowe wiersze -->
+        </tbody>
+        </thead>
+    </table>
+
+           
+</main>
+
+<footerExtension>
+    <p><a  href="/orders/add" class="form-button-submit">Dodaj nowe zamówienie</a></p>
+</footerExtension>
+<%- include('../../fragments/footer.ejs') %>

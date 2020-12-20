@@ -1,0 +1,76 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Edytuj szczegóły przypisania zamówienia</h2>
+    <form class="form">
+
+        
+            <label for="zamowienie">Zamówienie:<abbr title="required" aria-label="required">*</abbr></label>
+      
+            <select  id="selectList" disabled>
+                <option>WZ/01/2020</option>
+                <option>WZ/02/2020</option>
+                <option>WZ/03/2020</option>
+              </select>
+              <span id="errorSelectList" class="errors-text"></span>
+
+            <label for="pracownik">Pracownik::<abbr title="required" aria-label="required">*</abbr></label>
+            <select id="selectList2" disabled>
+                <option>Jan Kowalski</option>
+                <option>Artur Arturowicz</option>
+                <option>jakiś gość </option>
+              </select>
+              <span id="errorSelectList" class="errors-text"></span>
+
+            <label for="date">Pracuje od:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="date" value="2020-10-10" id="date" disabled  />
+            <span id="errorDate" class="errors-text"></span>
+
+            <label for="date">Pracuje do:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="date" value="2020-12-20" id="date" disabled />
+         <span id="errorDate" class="errors-text"></span>
+
+            <div class="form-buttons">
+                <a href="/makeOrderEmployees/edit/1" class="list-actions-button-edit">Edytuj</a> 
+            </div>
+          
+    </form>
+
+    <h2>Historia zamówienia</h2>
+    
+        <table class="table-list">
+        <thead>  
+            <tr>
+                <th>NrZamowienia</th>
+                <th>Opis</th>
+                <th>DataPrzyjecia</th>
+                <th>Przypisany Pracownik</th>
+                <th>Pracuje od</th>
+                <th>Pracuje do</th>
+               
+            </tr>
+
+            <tbody>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>-----</td>
+                <td>-----</td>
+                <td>----</td>
+            </tbody>
+                
+            <tbody>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>Jan Nowak</td>
+                <td>2020-10-10</td>
+                <td>nadal</td>
+            </tbody>
+           
+        </thead>
+    </table>
+  
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,48 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Nowe przypisywanie zamówienia pracownikowi.</h2>
+    <form class="form"novalidate onsubmit="return validateForm();">
+
+        
+        <label for="zamowienie">Zamówienie:<abbr title="required" aria-label="required">*</abbr></label>
+  
+        <div>
+
+        <select>
+            <option>WZ/01/2020</option>
+            <option>WZ/02/2020</option>
+            <option>WZ/03/2020</option>
+        </select>
+       
+        
+
+    </div>
+    <span id="errorSelectList" class="errors-text"></span>
+        <label for="pracownik">Pracownik:<abbr title="required" aria-label="required">*</abbr></label>
+        <select>
+            <option>Jan Kowalski</option>
+            <option>Artur Arturowicz</option>
+            <option>jakiś gość </option>
+          </select>
+          <span id="errorSelectList" class="errors-text"></span>
+    
+          <label for="date">Pracuje od:<abbr title="required" aria-label="required">*</abbr></label>
+          <input type="date" name="date" value="2020-10-10" id="date"   />
+          <span id="errorDate" class="errors-text"></span>
+
+        <label for="date">Pracuje do:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="date" name="date" value="2020-12-20" id="date"  />
+        <span id="errorDate" class="errors-text"></span>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <input type="submit" value="Potwierdz" class="form-button-submit" />   
+            <a href="/makeOrderEmployees" class="form-button-cancel">Anuluj</a>
+        </div>
+      
+</form>
+
+    
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

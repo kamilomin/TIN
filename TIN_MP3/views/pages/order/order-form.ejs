@@ -1,0 +1,34 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegoly Zamowienia</h2>
+    <form class="form" novalidate onsubmit="return validateForm();">
+ 
+        <label for="nrZamowienia">nrZamowienia:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="nrZamowienia"  id="nrZamowienia"  />
+        <span id="errorOrderNumber" class="errors-text"></span>
+    
+        <label for="opis">Opis:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="opis"  id="opis"  />
+        <span id="errorOpis" class="errors-text"></span>
+        
+        <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="date" name="date"  id="date"  />
+        <span id="errorDate" class="errors-text"></span>
+
+           
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="submit"  class="form-button-submit" />   
+                <a href="/orders" class="form-button-cancel">Anuluj</a>
+            </div>
+        
+        
+          
+    </form>
+ 
+    
+
+
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,46 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Dodawanie nowego departamentu</h2>
+    <form class="form" novalidate onsubmit="return validateForm();">
+ 
+            <label for="departmentName">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="departmentName" value="Pracownik Magazynu" id="departmentName"  />
+            <span id="errorDepartmenName" class="errors-text"></span>
+            
+        
+            <label for="opis">Opis:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="opis" value="Wszyscy fizyczni na placu" id="opis"  />
+            <span id="errorOpis" class="errors-text"></span>
+            
+            <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="date" value="2020-10-11" id="date"/>
+            <span id="errorDate" class="errors-text"></span>
+           
+           
+            <div class="form-buttons">
+                <p id="errorsSummary" class="errors-text"></p>
+                <input type="submit" value="Potwierdz" class="form-button-submit" />   
+                <a href="/departments" class="form-button-cancel">Anuluj</a>
+            </div>
+        
+        
+          
+    </form>
+   
+
+
+    <h2>Pracownicy Zatrudnieni w departamenncie</h2>
+    <form>
+
+
+    </form>
+</main>
+
+<footer>
+    Kamil Rogowski s17911
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <script type="application/javascript" src="/js/validationCommon.js"></script>
+    <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozek Web House Company Demo</title>
+</head>
+<body>
+  <header>
+    <div> <h1>Rozek Web House Company</h1>
+         <img src="/images/animated-forklift.gif" height="40" alt="from https://www.animatedimages.org/img-animated-forklift-image-0004-97631.htm"> </div>
+    <img src="/images/logo.png" width="100" height="100" alt="Rozek Web House Company Logo">
+    <img src="/images/desk.png" width="100" height="100" alt="Rozek Web House Company Logo">
+    <img src="/images/shopping-cart.png" width="100" height="100" alt="Rozek Web House Company Logo">
+</header>  
+<nav>
+    <ul>
+        <!-- <li><a href="/index" class="active">Strona główna</a></li>
+        <li><a href="/pages/employee/employee-list">Pracownicy</a></li>
+        <li><a href="/pages/department/department-list">Departamenty </a></li>
+        <li><a href="/pages/order/order-list">Zamówienia </a></li>
+        <li><a href="/pages/orderHistory/orderHistory-list">Historia zamówień </a></li>
+        <li><a href="/pages/makeOrderEmployee/makeOrderEmployee-list" >Przypisz zamowienie </a></li>
+         -->
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+        <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
+        <li><a href="/departments" class="<%= navLocation == 'dept' ? 'active' : ''%>">Departamenty </a></li>
+        <li><a href="/employments" class="<%= navLocation == 'employmentSC' ? 'active' : ''%>">Zatrudnienie </a></li>
+        <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>">Zamówienia </a></li>
+        <!-- <li><a href="/pages/orderHistory/orderHistory-list" class="<%= navLocation == 'AAAAAAAAAAA' ? 'active' : ''%>">Historia zamówień </a></li> -->
+        <li><a href="/makeOrderEmployees" class="<%= navLocation == 'makeOrderEmployee' ? 'active' : ''%>">Przypisz zamowienie </a></li>
+    
+    </ul>
+   
+</nav>

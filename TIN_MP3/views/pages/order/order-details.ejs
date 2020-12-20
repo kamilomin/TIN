@@ -1,0 +1,68 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Szczegoly Zamowienia</h2>
+    <form class="form">
+ 
+            <label for="nrZamowienia">nrZamowienia:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="nrZamowienia" value="WZ/01/2020" id="nrZamowienia" disabled />
+            <span id="errorOrderNumber" class="errors-text"></span>
+        
+            <label for="opis">Opis:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="opis" value="Bardzo pilne" id="opis" disabled />
+            <span id="errorOpis" class="errors-text"></span>
+            
+            <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="date" name="date" value="2020-11-10" id="date" disabled />
+            <span id="errorDate" class="errors-text"></span>
+
+           
+            <div class="form-buttons">
+                <a href="/orders/edit/1" class="list-actions-button-edit">Edytuj</a> 
+                <a href="/orders" class="form-button-cancel">Anuluj</a>
+            </div>
+        
+        
+          
+    </form>
+   
+
+
+   
+    <form>
+
+        <h2>Historia zamówienia</h2>
+    
+        <table class="table-list">
+        <thead>  
+            <tr>
+                <th>NrZamowienia</th>
+                <th>Opis</th>
+                <th>DataPrzyjecia</th>
+                <th>Przypisany Pracownik</th>
+                <th>Pracuje od</th>
+                <th>Pracuje do</th>
+               
+            </tr>
+
+            <tbody>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>-----</td>
+                <td>-----</td>
+                <td>----</td>
+            </tbody>
+                
+            <tbody>
+                <td>WZ/01/2020</td>
+                <td>Bardzo pilne</td>
+                <td>2020-10-10</td>
+                <td>Jan Nowak</td>
+                <td>2020-10-10</td>
+                <td>nadal</td>
+            </tbody>
+
+    </form>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>
