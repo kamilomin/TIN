@@ -1,7 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    fghdh
+    <p style="line-height: 150%; ">
     <% if(!loggedUser) { %>
         <div id="login">
             <h5>Logowanie</h5>
@@ -17,9 +17,11 @@
             </form>
         </div>
     <% } else { %>
-        <span>Zalogowany: <%=loggedUser.firstName + " " + loggedUser.lastName%></span>
-        <a href="/logout">Wyloguj się</a>
+        <span>Zalogowany: <%=loggedUser.firstName + " " + loggedUser.lastName%></span><br>
+        poziom dostępu - <%=loggedUser.accessLevel%><br>
+        <a href="/logout">Wyloguj się</a><br>
     <% } %> 
+    </p>
 </main>
 
 <%- include('../../fragments/footer.ejs') %>

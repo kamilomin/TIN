@@ -54,6 +54,11 @@ const Employee = sequelize.define('Employee', {
 password: {
     type: Sequelize.STRING,
      allowNull: false
+ },
+ accessLevel: {
+    type: Sequelize.INTEGER,
+     allowNull: false,
+     defaultValue: 0 
  }
 });
 

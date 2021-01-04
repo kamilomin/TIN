@@ -41,8 +41,10 @@ exports.createEmployee = (newEmpData) => {
                 const firstName = newEmpData.firstName;
                 const lastName = newEmpData.lastName;
                 const email = newEmpData.email;
-                const sql = 'INSERT into Employee (firstName, lastName, email) VALUES (?, ?, ?)'
-                return db.promise().execute(sql, [firstName, lastName, email]);
+                const password = newEmpData.password;
+                const accessLevel = newEmpData.accessLevel;
+                const sql = 'INSERT into Employee (firstName, lastName, email, password, accessLevel) VALUES (?, ?, ?, ?,?)'
+                return db.promise().execute(sql, [firstName, lastName, email, password, accessLevel]);
             }
         })
         .catch(err => {
@@ -53,6 +55,8 @@ exports.updateEmployee = (empId, empData) => {
     const firstName = empData.firstName;
     const lastName = empData.lastName;
     const email = empData.email;
+    const password = newEmpData.password;
+    const accessLevel = newEmpData.accessLevel;
     return Employee.update(empData, {where: {_id: empId }});
 };
 

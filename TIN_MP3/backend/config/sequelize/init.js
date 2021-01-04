@@ -32,25 +32,27 @@ module.exports = () => {
         .then(emps => {
             if( !emps || emps.length == 0 ) {
                 return Employee.bulkCreate([
-                    {firstName: 'Jan', lastName: 'Janowicz', email: 'jan.Janowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Adam', lastName: 'Adamowicz', email: 'adam.Adamowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Marian', lastName: 'Kaminski', email: 'marian.Kaminski@rozekWHC.com', password: passHash},
-                    {firstName: 'Kamil', lastName: 'Kamilowicz', email: 'Kamil.Kamilowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Maciek', lastName: 'Maciekowicz', email: 'Maciekowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Konrad', lastName: 'Konradowicz', email: 'Konradowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Eustachy', lastName: 'Eustachowicz', email: 'Eustachowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Henryk', lastName: 'Henrykowicz', email: 'Henrykowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Witold', lastName: 'Widoldowicz', email: 'Widoldowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Przemek', lastName: 'Przemkowicz', email: 'Przemkowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Zygmunt', lastName: 'Zygmuntowicz', email: 'Zygmuntowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Maurycy', lastName: 'Maurycowicz', email: 'Maurycowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Kacper', lastName: 'Kacperowicz', email: 'Kacperowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Vivadi', lastName: 'Vivadowicz', email: 'Vivadowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Dima', lastName: 'Dimowicz', email: 'Dimowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Karol', lastName: 'Karolowicz', email: 'Karolowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Marian', lastName: 'Marianowicz', email: 'Marianowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Tomek', lastName: 'Tomkowicz', email: 'Tomkowicz@rozekWHC.com', password: passHash},
-                    {firstName: 'Robert', lastName: 'Robertowicz', email: 'Robertowicz@rozekWHC.com', password: passHash}
+                    {firstName: 'Admin', lastName: 'Adminowicz', email: 'admin.Adminowicz@rozekWHC.com', password: passHash, accessLevel: 2},
+                    {firstName: 'User', lastName: 'Userowicz', email: 'user.Userowicz@rozekWHC.com', password: passHash, accessLevel: 1},
+                    {firstName: 'Jan', lastName: 'Janowicz', email: 'jan.Janowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Adam', lastName: 'Adamowicz', email: 'adam.Adamowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Marian', lastName: 'Kaminski', email: 'marian.Kaminski@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Kamil', lastName: 'Kamilowicz', email: 'Kamil.Kamilowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Maciek', lastName: 'Maciekowicz', email: 'Maciekowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Konrad', lastName: 'Konradowicz', email: 'Konradowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Eustachy', lastName: 'Eustachowicz', email: 'Eustachowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Henryk', lastName: 'Henrykowicz', email: 'Henrykowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Witold', lastName: 'Widoldowicz', email: 'Widoldowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Przemek', lastName: 'Przemkowicz', email: 'Przemkowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Zygmunt', lastName: 'Zygmuntowicz', email: 'Zygmuntowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Maurycy', lastName: 'Maurycowicz', email: 'Maurycowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Kacper', lastName: 'Kacperowicz', email: 'Kacperowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Vivadi', lastName: 'Vivadowicz', email: 'Vivadowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Dima', lastName: 'Dimowicz', email: 'Dimowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Karol', lastName: 'Karolowicz', email: 'Karolowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Marian', lastName: 'Marianowicz', email: 'Marianowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Tomek', lastName: 'Tomkowicz', email: 'Tomkowicz@rozekWHC.com', password: passHash, accessLevel: 0},
+                    {firstName: 'Robert', lastName: 'Robertowicz', email: 'Robertowicz@rozekWHC.com', password: passHash, accessLevel: 0}
 
                 ])
                 .then( () => {
