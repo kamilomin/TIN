@@ -4,9 +4,11 @@ const Employee = require('../../model/sequelize/Employee');
 const Department = require('../../model/sequelize/Department');
 const Employment = require('../../model/sequelize/Employment');
 const authUtil = require('../../util/authUtils');
+
 const passHash = authUtil.hashPassword('12345');
 
-
+const MakeOrderEmployee = require('../../model/sequelize/MakeOrderEmployee');
+const Order = require("../../model/sequelize/Order");
 
 //const db = require("../../model");
 
@@ -15,8 +17,14 @@ module.exports = () => {
     Employment.belongsTo(Employee, {as: 'employee', foreignKey: {name: 'emp_id', allowNull: false} } );
     Department.hasMany(Employment, {as: 'employments', foreignKey: {name: 'dept_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
     Employment.belongsTo(Department, {as: 'department', foreignKey: {name: 'dept_id', allowNull: false} });
-
-
+    
+    
+    ///////////////////
+    Employee.hasMany(MakeOrderEmployee, {as: 'makeOrderEmployees', foreignKey: {name: 'emp_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
+    MakeOrderEmployee.belongsTo(Employee, {as: 'employee', foreignKey: {name: 'emp_id', allowNull: false} });
+    
+    Order.hasMany(MakeOrderEmployee, {as: 'makeOrderEmployees', foreignKey: {name: 'order_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
+    MakeOrderEmployee.belongsTo(Order, {as: 'order', foreignKey: {name: 'order_id', allowNull: false} });
    // up:() => db.sequelize.query(initialSqlScript)
 
 
@@ -116,9 +124,44 @@ module.exports = () => {
                     {emp_id: allEmps[5]._id, dept_id: allDepts[3]._id, salary: 3000, dateFrom: '2009-01-02', dateTo: null},
                     {emp_id: allEmps[6]._id, dept_id: allDepts[4]._id, salary: 3000, dateFrom: '2009-01-02', dateTo: null},
                     {emp_id: allEmps[7]._id, dept_id: allDepts[5]._id, salary: 3000, dateFrom: '2009-01-02', dateTo: null}
-                ]);
+                ]);  
             } else {
                 return empls;
+            }
+        }) ////////////////////////////////////////////////////////////////////////////////////
+        .then( emps => {
+            allEmps = emps;
+            return Order.findAll();
+        })
+        .then( orders => {
+            if( !orders || orders.length == 0 ) {
+                return Order.bulkCreate([
+                    { name: 'WZ/001/2020', description: 'Pilne', dateArrival: '2009-01-02' },
+                    { name: 'WZ/002/2020', description: 'Nie spieszy sie', dateArrival: '2009-01-02' },
+                    { name: 'WZ/003/2020', description: 'Sprawdz adres wysylki', dateArrival: '2009-01-02' },
+                    { name: 'WZ/004/2020', description: 'Dzwon przed wyslaniem', dateArrival: '2009-01-02' },
+                    { name: 'WZ/005/2020', description: 'Pilne', dateArrival: '2009-01-02' }
+                ])
+                .then( () => {
+                    return Employee.findAll();
+                });
+            } else {
+                return orders;
+            }
+        })
+        .then( orders => {
+            allOrders = orders;
+            return MakeOrderEmployee.findAll();
+        })
+        .then( makeOrderEmployees => {
+            if( !makeOrderEmployees || makeOrderEmployees.length == 0 ) {
+                return MakeOrderEmployee.bulkCreate([
+                    {emp_id: allEmps[0]._id, order_id: allOrders[0]._id, orderValue: 50000,  dateTo: null},
+                    {emp_id: allEmps[1]._id, order_id: allOrders[1]._id, orderValue: 50000,  dateTo: null},
+                    {emp_id: allEmps[2]._id, order_id: allOrders[2]._id, orderValue: 50000,  dateTo: '2009-10-10'}
+                ]);  
+            } else {
+                return makeOrderEmployees;
             }
         });
 };

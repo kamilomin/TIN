@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const Employee = require("../../model/sequelize/Employee");
 const Employment = require("../../model/sequelize/Employment");
 const Department = require("../../model/sequelize/Department");
-
+const MakeOrderEmployee = require('../../model/sequelize/MakeOrderEmployee');
 exports.getEmployees = () => {
     return Employee.findAll();
 };
@@ -15,9 +15,13 @@ exports.getEmployeeById = (empId) => {
                 as: 'employments',
             include: [{
                 model: Department,
-                as: 'department'
+                as: 'department',
+            include: [{
+                model: MakeOrderEmployee,
+                as: 'makeOrderEmployees',
                 }]
             }]
+        }]
         });
 };
 

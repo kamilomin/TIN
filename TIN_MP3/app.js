@@ -47,11 +47,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //===================================================
 app.use('/', indexRouter);
 app.use('/sign', signRouter);
-app.use('/employees', authUtils.permitAuthenticatedUser,employeeRouter);
-app.use('/departments', departmentRouter);
-app.use('/employments', employmentRouter);
-app.use('/orders', orderRouter);
-app.use('/makeOrderEmployees', makeOrderEmployeeRouter);
+app.use('/employees', authUtils.permitAuthenticatedUser, employeeRouter);
+app.use('/departments', authUtils.permitAuthenticatedUser, departmentRouter);
+app.use('/employments', authUtils.permitAuthenticatedUser, employmentRouter);
+app.use('/orders', authUtils.permitAuthenticatedUser,  orderRouter);
+app.use('/makeOrderEmployees', authUtils.permitAuthenticatedUser, makeOrderEmployeeRouter);
 
 
 //===================================================

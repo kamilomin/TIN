@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
-const Department = sequelize.define('Department', {
+const Order = sequelize.define('Order', {
     _id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,8 +12,12 @@ const Department = sequelize.define('Department', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    budget: {
-        type: Sequelize.DECIMAL(10,2),
+    description: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    dateArrival: {
+        type: Sequelize.DATE,
         allowNull: false
     },
     createdAt: {
@@ -29,4 +33,4 @@ const Department = sequelize.define('Department', {
     
 });
 
-module.exports = Department;
+module.exports = Order;

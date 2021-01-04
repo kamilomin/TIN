@@ -1,16 +1,120 @@
+
+// powinno byc takie a momam to co nizej xD const MakeOrderEmployeeRepository = require('../backend/repository/sequelize/MakeOrderEmployeeRepository');
+const MakeOrderEmployeeRepository = require('../backend/config/sequelize/MakeOrderEmployeeRepository');
+const EmployeeRepository = require('../backend/config/sequelize/EmployeeRepository');
+const OrderRepository = require('../backend/config/sequelize/OrderRepository');
+
+
+
 exports.showMakeOrderEmployeeList = (req, res, next) => {
-    res.render('pages/makeOrderEmployee/makeOrderEmployee-list', { navLocation: 'makeOrderEmployee'});
+
+    MakeOrderEmployeeRepository.getMakeOrderEmployees()
+    .then(makeOrderEmployeeSCs => {
+        res.render('pages/MakeOrderEmployee/MakeOrderEmployee-list', {
+            makeOrderEmployeeSCs: makeOrderEmployeeSCs,
+            // emps: emps,
+            // Orders: Orders,
+            navLocation: 'MakeOrderEmployeeSC'
+        });
+    });
 }
 
 exports.showAddMakeOrderEmployeeForm = (req, res, next) => {
-    res.render('pages/makeOrderEmployee/makeOrderEmployee-form', {navLocation: 'makeOrderEmployee'});
+    let allEmps, allOrders;
+    EmployeeRepository.getEmployees()
+        .then(emps => {
+            allEmps = emps;
+            return OrderRepository.getDepartments();
+        })
+        .then(orders => {
+            allOrders = orders;
+            res.render('pages/MakeOrderEmployee/MakeOrderEmployee-form', {
+                MakeOrderEmployeeSC: {},
+                formMode: 'createNew',
+                allEmps: allEmps,
+                allOrders: allOrders,
+                pageTitle: 'Nowe zatrudnienia',
+                btnLabel: 'Dodaj zatrudnienie',
+                formAction: '/MakeOrderEmployees/add',
+                navLocation: 'MakeOrderEmployeeSC'
+            });
+        });
 }
 
 exports.showMakeOrderEmployeeDetails = (req, res, next) => {
-    res.render('pages/makeOrderEmployee/makeOrderEmployee-details', {navLocation: 'makeOrderEmployee'});
+    let allEmps, allOrders;
+    const MakeOrderEmployeeSCId = req.params.MakeOrderEmployeeSCId;
+    EmployeeRepository.getEmployees()
+    .then(emps => {
+        allEmps = emps;
+        return OrderRepository.getDepartments();
+    })
+    .then(Orders => {
+        allOrders = Orders;
+    
+    
+    return MakeOrderEmployeeRepository.getMakeOrderEmployeeById(MakeOrderEmployeeSCId)
+    })
+        .then(MakeOrderEmployeeSC => {
+            res.render('pages/MakeOrderEmployee/MakeOrderEmployee-form', {
+                MakeOrderEmployeeSC: MakeOrderEmployeeSC,
+                formMode: 'showDetails',
+                allEmps: allEmps,
+                allOrders: allOrders,
+                pageTitle: 'Szczegóły departamentu',
+                formAction: '',
+                navLocation: 'MakeOrderEmployeeSC'
+            });
+        });
 }
 
 exports.showMakeOrderEmployeeEdit = (req, res, next) => {
-    res.render('pages/makeOrderEmployee/makeOrderEmployee-edit', {navLocation: 'makeOrderEmployee'});
-}
+    let allEmps, allOrders;
+    const MakeOrderEmployeeSCId = req.params.MakeOrderEmployeeSCId;
+    EmployeeRepository.getEmployees()
+    .then(emps => {
+        allEmps = emps;
+        return OrderRepository.getDepartments();
+    })
+    .then(Orders => {
+        allOrders = Orders;
+        return  MakeOrderEmployeeRepository.getMakeOrderEmployeeById(MakeOrderEmployeeSCId)
+    })
+        .then(MakeOrderEmployeeSC => {
+            res.render('pages/MakeOrderEmployee/MakeOrderEmployee-form', {
+                MakeOrderEmployeeSC: MakeOrderEmployeeSC,
+                formMode: 'edit',
+                allEmps: allEmps,
+                allOrders: allOrders,
+                pageTitle: 'Edycja departamentu',
+                btnLabel: 'Potwierdź edycje',
+                formAction: '/MakeOrderEmployees/edit',
+                navLocation: 'MakeOrderEmployeeSC'
+            });
+        });
+};
 
+exports.addMakeOrderEmployee = (req, res, next) => {
+    const MakeOrderEmployeeSCData = { ...req.body };
+    MakeOrderEmployeeRepository.createMakeOrderEmployee(MakeOrderEmployeeSCData)
+        .then( result => {
+            res.redirect('/MakeOrderEmployees');
+        });
+};
+
+exports.updateMakeOrderEmployee = (req, res, next) => {
+    const MakeOrderEmployeeSCId = req.body._id;
+    const MakeOrderEmployeeSCData = { ...req.body };
+    MakeOrderEmployeeRepository.updateMakeOrderEmployee(MakeOrderEmployeeSCId, MakeOrderEmployeeSCData)
+        .then( result => {
+            res.redirect('/MakeOrderEmployees');
+        });
+};
+
+exports.deleteMakeOrderEmployee = (req, res, next) => {
+    const MakeOrderEmployeeSCId = req.params.MakeOrderEmployeeSCId;
+    MakeOrderEmployeeRepository.deleteMakeOrderEmployee(MakeOrderEmployeeSCId)
+        .then( () => {
+            res.redirect('/MakeOrderEmployees');
+        });
+};
