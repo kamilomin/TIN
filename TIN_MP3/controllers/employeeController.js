@@ -25,6 +25,7 @@ exports.showAddEmployeeForm = (req, res, next) => {
                 btnLabel: 'Dodaj pracownika',
                 formAction: '/employees/add',
                 navLocation: 'emp',
+                validationErrors: err.details
                
             });
 

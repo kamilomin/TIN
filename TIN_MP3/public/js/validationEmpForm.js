@@ -13,6 +13,8 @@ function validateForm() {
     const errorEmail = document.getElementById('errorEmail');
     const errorDepartmentName = document.getElementById('errorDepartmentName');
     const errorOpis = document.getElementById('errorOpis');
+    //const error-input = document.getElementById('errorOpis');
+
     const errorsSummary = document.getElementById('errorsSummary');
     
     let valid = true; 
