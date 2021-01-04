@@ -11,7 +11,7 @@ const departmentRouter = require('./routes/departmentRoute');
 const employmentRouter = require('./routes/employmentRoute');
 const orderRouter = require('./routes/orderRoute');
 const makeOrderEmployeeRouter = require('./routes/makeOrderEmployeeRoute');
-
+const authUtils = require('./backend/util/authUtils');
 
 
 var app = express();
@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //===================================================
 app.use('/', indexRouter);
-app.use('/employees', employeeRouter);
+app.use('/employees', authUtils.permitAuthenticatedUser,employeeRouter);
 app.use('/departments', departmentRouter);
 app.use('/employments', employmentRouter);
 app.use('/orders', orderRouter);

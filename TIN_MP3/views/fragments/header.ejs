@@ -15,6 +15,25 @@
     <img src="/images/logo.png" width="100" height="100" alt="Rozek Web House Company Logo">
     <img src="/images/desk.png" width="100" height="100" alt="Rozek Web House Company Logo">
     <img src="/images/shopping-cart.png" width="100" height="100" alt="Rozek Web House Company Logo">
+    <% if(!loggedUser) { %>
+        <div id="login">
+            <h5>Logowanie</h5>
+            <form method="post" action="/login" novalidate>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email">
+    
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" name="password">
+    
+                <input type="submit" value="Zaloguj się">
+                <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+            </form>
+        </div>
+    <% } else { %>
+        <span>Zalogowany: <%=loggedUser.firstName + " " + loggedUser.lastName%></span>
+        <a href="/logout">Wyloguj się</a>
+    <% } %> 
+    
 </header>  
 <nav>
     <ul>
@@ -26,13 +45,34 @@
         <li><a href="/pages/makeOrderEmployee/makeOrderEmployee-list" >Przypisz zamowienie </a></li>
          -->
         <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
-        <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
-        <li><a href="/departments" class="<%= navLocation == 'dept' ? 'active' : ''%>">Departamenty </a></li>
-        <li><a href="/employments" class="<%= navLocation == 'employmentSC' ? 'active' : ''%>">Zatrudnienie </a></li>
-        <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>">Zamówienia </a></li>
-        <!-- <li><a href="/pages/orderHistory/orderHistory-list" class="<%= navLocation == 'AAAAAAAAAAA' ? 'active' : ''%>">Historia zamówień </a></li> -->
-        <li><a href="/makeOrderEmployees" class="<%= navLocation == 'makeOrderEmployee' ? 'active' : ''%>">Przypisz zamowienie </a></li>
-    
+        <% if(loggedUser) { %>
+            <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
+            <li><a href="/departments" class="<%= navLocation == 'dept' ? 'active' : ''%>">Departamenty </a></li>
+            <li><a href="/employments" class="<%= navLocation == 'employmentSC' ? 'active' : ''%>">Zatrudnienie </a></li>
+            <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>">Zamówienia </a></li>
+            <!-- <li><a href="/pages/orderHistory/orderHistory-list" class="<%= navLocation == 'AAAAAAAAAAA' ? 'active' : ''%>">Historia zamówień </a></li> -->
+            <li><a href="/makeOrderEmployees" class="<%= navLocation == 'makeOrderEmployee' ? 'active' : ''%>">Przypisz zamowienie </a></li>
+            <li>  <% if(!loggedUser) { %>
+                <div id="login">
+                    <h5>Logowanie</h5>
+                    <form method="post" action="/login" novalidate>
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="email">
+            
+                        <label for="loginPassword">Hasło:</label>
+                        <input type="password" id="loginPassword" name="password">
+            
+                        <input type="submit" value="Zaloguj się">
+                        <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+                    </form>
+                </div>
+            <% } else { %>
+                <span>Zalogowany: <%=loggedUser.firstName + " " + loggedUser.lastName%></span>
+                <a href="/logout">Wyloguj się</a>
+            <% } %> </li>
+      
+        <% } %>
+        
     </ul>
    
 </nav>

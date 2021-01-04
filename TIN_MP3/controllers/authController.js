@@ -1,4 +1,5 @@
 const EmployeeRepository = require('../backend/config/sequelize/EmployeeRepository');
+const authUtil = require('../backend/util/authUtils');
 //const EmployeeRepository = require('../backend/repository/config/sequelize/EmployeeRepository'); // zrob taki kiedys sciezke
 exports.login = (req, res, next) => {
     const email = req.body.email;
@@ -10,7 +11,8 @@ exports.login = (req, res, next) => {
                     navLocation: '',
                     loginError: "Nieprawidłowy adres email lub hasło"
                 })
-            } else if(emp.password === password) {
+            // } else if(emp.password === password) {
+            } else if(authUtil.comparePasswords(password, emp.password) === true) {
                 req.session.loggedUser = emp;
                 res.redirect('/');
             } else {
