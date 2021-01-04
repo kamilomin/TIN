@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var signRouter = require('./routes/sign');
 //var usersRouter = require('./routes/users'); // btw czym rozni sie var od const ????
 const employeeRouter = require('./routes/employeeRoute');
 const departmentRouter = require('./routes/departmentRoute');
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //===================================================
 app.use('/', indexRouter);
+app.use('/sign', signRouter);
 app.use('/employees', authUtils.permitAuthenticatedUser,employeeRouter);
 app.use('/departments', departmentRouter);
 app.use('/employments', employmentRouter);

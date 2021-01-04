@@ -1,0 +1,25 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    fghdh
+    <% if(!loggedUser) { %>
+        <div id="login">
+            <h5>Logowanie</h5>
+            <form method="post" action="/login" novalidate>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email">
+    
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" name="password">
+    
+                <input type="submit" value="Zaloguj się">
+                <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+            </form>
+        </div>
+    <% } else { %>
+        <span>Zalogowany: <%=loggedUser.firstName + " " + loggedUser.lastName%></span>
+        <a href="/logout">Wyloguj się</a>
+    <% } %> 
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

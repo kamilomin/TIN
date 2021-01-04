@@ -47,6 +47,9 @@
         <ul>
             
         <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+        <% if(!loggedUser) { %>
+        <li><a href="/sign" class="<%= navLocation == 'sign' ? 'active' : ''%>">Logowanie</a>
+        <% } %>
         <% if(loggedUser) { %>
             <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a>
                 <ul>
