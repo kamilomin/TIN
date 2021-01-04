@@ -50,7 +50,11 @@ const Employee = sequelize.define('Employee', {
             msg: 'Pole powinno zawierać prawidłowy adres email'
         }
     }
-}
+},
+password: {
+    type: Sequelize.STRING,
+     allowNull: false
+ }
 });
 
 module.exports = Employee;

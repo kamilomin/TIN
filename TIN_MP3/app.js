@@ -16,6 +16,23 @@ const makeOrderEmployeeRouter = require('./routes/makeOrderEmployeeRoute');
 
 var app = express();
 
+//Sesja musi byc przed routami 
+const session = require('express-session');
+app.use(session({
+    secret: 'my_secret_password',
+    resave: false
+}));
+
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if(!res.locals.loginError) {
+      res.locals.loginError = undefined;
+  }
+  next();
+});
+//// 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -67,6 +84,14 @@ sequelizeInit()
 const empApiRouter = require('././backend/routes/api/EmployeeApiRoute');
 app.use('/api/employees', empApiRouter);
 ///////////////////////
+
+
+
+
+
+
+
+
 
 
 module.exports = app;

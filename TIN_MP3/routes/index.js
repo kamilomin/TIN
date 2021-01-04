@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { navLocation: 'main' });
@@ -8,9 +10,11 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-
-
-
+//// to obojetnie gdzie działą  WEIRD
+const AuthController = require('../controllers/authController');
+router.post('/login', AuthController.login);
+router.get('/logout', AuthController.logout);
+////
 //  import React, { Suspense } from 'react';
 //  import ReactDOM from 'react-dom';
 //  import './index.css';

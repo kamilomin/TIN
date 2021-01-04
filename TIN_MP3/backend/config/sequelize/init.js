@@ -27,25 +27,25 @@ module.exports = () => {
         .then(emps => {
             if( !emps || emps.length == 0 ) {
                 return Employee.bulkCreate([
-                    {firstName: 'Jan', lastName: 'Janowicz', email: 'jan.Janowicz@rozekWHC.com'},
-                    {firstName: 'Adam', lastName: 'Adamowicz', email: 'adam.Adamowicz@rozekWHC.com'},
-                    {firstName: 'Marian', lastName: 'Kaminski', email: 'marian.Kaminski@rozekWHC.com'},
-                    {firstName: 'Kamil', lastName: 'Kamilowicz', email: 'Kamil.Kamilowicz@rozekWHC.com'},
-                    {firstName: 'Maciek', lastName: 'Maciekowicz', email: 'Maciekowicz@rozekWHC.com'},
-                    {firstName: 'Konrad', lastName: 'Konradowicz', email: 'Konradowicz@rozekWHC.com'},
-                    {firstName: 'Eustachy', lastName: 'Eustachowicz', email: 'Eustachowicz@rozekWHC.com'},
-                    {firstName: 'Henryk', lastName: 'Henrykowicz', email: 'Henrykowicz@rozekWHC.com'},
-                    {firstName: 'Witold', lastName: 'Widoldowicz', email: 'Widoldowicz@rozekWHC.com'},
-                    {firstName: 'Przemek', lastName: 'Przemkowicz', email: 'Przemkowicz@rozekWHC.com'},
-                    {firstName: 'Zygmunt', lastName: 'Zygmuntowicz', email: 'Zygmuntowicz@rozekWHC.com'},
-                    {firstName: 'Maurycy', lastName: 'Maurycowicz', email: 'Maurycowicz@rozekWHC.com'},
-                    {firstName: 'Kacper', lastName: 'Kacperowicz', email: 'Kacperowicz@rozekWHC.com'},
-                    {firstName: 'Vivadi', lastName: 'Vivadowicz', email: 'Vivadowicz@rozekWHC.com'},
-                    {firstName: 'Dima', lastName: 'Dimowicz', email: 'Dimowicz@rozekWHC.com'},
-                    {firstName: 'Karol', lastName: 'Karolowicz', email: 'Karolowicz@rozekWHC.com'},
-                    {firstName: 'Marian', lastName: 'Marianowicz', email: 'Marianowicz@rozekWHC.com'},
-                    {firstName: 'Tomek', lastName: 'Tomkowicz', email: 'Tomkowicz@rozekWHC.com'},
-                    {firstName: 'Robert', lastName: 'Robertowicz', email: 'Robertowicz@rozekWHC.com'}
+                    {firstName: 'Jan', lastName: 'Janowicz', email: 'jan.Janowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Adam', lastName: 'Adamowicz', email: 'adam.Adamowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Marian', lastName: 'Kaminski', email: 'marian.Kaminski@rozekWHC.com', password: '12345'},
+                    {firstName: 'Kamil', lastName: 'Kamilowicz', email: 'Kamil.Kamilowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Maciek', lastName: 'Maciekowicz', email: 'Maciekowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Konrad', lastName: 'Konradowicz', email: 'Konradowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Eustachy', lastName: 'Eustachowicz', email: 'Eustachowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Henryk', lastName: 'Henrykowicz', email: 'Henrykowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Witold', lastName: 'Widoldowicz', email: 'Widoldowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Przemek', lastName: 'Przemkowicz', email: 'Przemkowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Zygmunt', lastName: 'Zygmuntowicz', email: 'Zygmuntowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Maurycy', lastName: 'Maurycowicz', email: 'Maurycowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Kacper', lastName: 'Kacperowicz', email: 'Kacperowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Vivadi', lastName: 'Vivadowicz', email: 'Vivadowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Dima', lastName: 'Dimowicz', email: 'Dimowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Karol', lastName: 'Karolowicz', email: 'Karolowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Marian', lastName: 'Marianowicz', email: 'Marianowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Tomek', lastName: 'Tomkowicz', email: 'Tomkowicz@rozekWHC.com', password: '12345'},
+                    {firstName: 'Robert', lastName: 'Robertowicz', email: 'Robertowicz@rozekWHC.com', password: '12345'}
 
                 ])
                 .then( () => {
