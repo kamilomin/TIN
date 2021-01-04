@@ -36,7 +36,7 @@
     
 </header>  
 <nav>
-    <ul>
+    
         <!-- <li><a href="/index" class="active">Strona główna</a></li>
         <li><a href="/pages/employee/employee-list">Pracownicy</a></li>
         <li><a href="/pages/department/department-list">Departamenty </a></li>
@@ -44,36 +44,38 @@
         <li><a href="/pages/orderHistory/orderHistory-list">Historia zamówień </a></li>
         <li><a href="/pages/makeOrderEmployee/makeOrderEmployee-list" >Przypisz zamowienie </a></li>
          -->
+        <ul>
+            
         <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
         <% if(loggedUser) { %>
-            <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
-            <li><a href="/departments" class="<%= navLocation == 'dept' ? 'active' : ''%>">Departamenty </a></li>
+            <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a>
+                <ul>
+                    <li><a href="#">link - 1</a>
+                        <ul>
+                            <li><a href="#">link - 1</a></li>
+                            <li><a href="#">link - 2</a></li>
+                            <li><a href="#">link - 3</a></li>
+                            <li><a href="#">link - 4</a></li>
+                            <li><a href="#">link - 5</a></li>
+                        </ul> 
+                    </li>
+                    <li><a href="#">link - 2</a></li>
+                    <li><a href="#">link - 3</a></li>
+                    <li><a href="#">link - 4</a></li>
+                    <li><a href="#">link - 5</a></li>
+                </ul> 
+            </li>
+            <li><a href="/departments" class="<%= navLocation == 'dept' ? 'active' : ''%>">Departamenty </a>
+
+            </li>
             <li><a href="/employments" class="<%= navLocation == 'employmentSC' ? 'active' : ''%>">Zatrudnienie </a></li>
             <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>">Zamówienia </a></li>
             <!-- <li><a href="/pages/orderHistory/orderHistory-list" class="<%= navLocation == 'AAAAAAAAAAA' ? 'active' : ''%>">Historia zamówień </a></li> -->
             <li><a href="/makeOrderEmployees" class="<%= navLocation == 'makeOrderEmployee' ? 'active' : ''%>">Przypisz zamowienie </a></li>
-            <li>  <% if(!loggedUser) { %>
-                <div id="login">
-                    <h5>Logowanie</h5>
-                    <form method="post" action="/login" novalidate>
-                        <label for="loginEmail">Email:</label>
-                        <input type="email" id="loginEmail" name="email">
-            
-                        <label for="loginPassword">Hasło:</label>
-                        <input type="password" id="loginPassword" name="password">
-            
-                        <input type="submit" value="Zaloguj się">
-                        <span id="loginErrors"><%= loginError ? loginError : ''%></span>
-                    </form>
-                </div>
-            <% } else { %>
-                <span>Zalogowany: <%=loggedUser.firstName + " " + loggedUser.lastName%></span>
-                <a href="/logout">Wyloguj się</a>
-            <% } %> </li>
+       
       
         <% } %>
         
     </ul>
-   
 </nav>
 

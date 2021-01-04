@@ -1,0 +1,45 @@
+ol > li {
+    float:left;
+    width:150px;
+    margin-left:1px;
+    background-color:#FDD700;
+    height:2em;
+  }
+
+  /* wygląd elementu - li - pierwszego dziecka elementu - ol */
+  ol > li:first-child {
+    margin-left:0;
+  }
+
+  /* wygląd elementów - li - wszystkich dzieci elementu - ol - po najechaniu kursorem myszki na element - li */
+  ol > li:hover {
+    background-color:#EEE;
+  }
+
+  /* wygląd elementu - a - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+  ol > li:hover > a {
+    color:#09C;
+  }
+
+  /* wygląd elementu - ul - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+  ol > li:hover > ul {
+    display:block;
+  }
+  
+  
+  nav ul li a {
+    display: inline-block;
+    color: #2c3e50;
+    padding: 1rem 2rem;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    background-color: #c4d10d;
+    color: #ecf0f1;
+    border-radius: 20px;
+}
+nav ul li a.active {
+    background-color: #95a5a6;
+    color: #ecf0f1;
+    border-radius: 20px;
+}

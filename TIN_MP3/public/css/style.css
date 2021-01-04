@@ -364,29 +364,78 @@ abbr[title='required'] {
 /* .form-buttons {
     grid-column: 1 / span 1; 
 } */
+/* ////////////////////////////////////////////////////////// */
 
 
 
-.button-edit{
-    width: 100%;
-background-color: #f39c12;
-box-sizing: border-box;
-display: block;
-border: none;
-border-radius: 5px;
-color: white;
-text-decoration: none;
-text-align: center;
-font-size: 1rem;
-padding: 0.5rem 1rem;
+
+/* ul {
+    list-style: none;
+    float: left;
+} */
+
+ul > li {
+    margin: 0;
+    padding: 0;
+    float: left; 
+    position: relative;
+    height: 50px;
+    z-index: 2; /*to jest fajne dzieki temu wyciagamy zawsze na wiech to menu */
 }
-.button-edit:hover{
-background-color: #f1c40f;
+
+ul > li > a {
+    padding: 20px; 
+    color: #2c3e50;
+    text-decoration: none;
 }
 
+ul > li > a:hover, 
+ul > li:hover > a {
+    color: #505050;
+    text-decoration: underline;
+}
 
+ul > li ul {
+    padding: 0;
+    position: absolute; 
+    display: none; 
+    left: 0px; 
+    top: 50px; 
+    width: 200px; 
+    text-align: left;
+    background-color: #bdc3c7;
+    border-radius: 10px;
+    border: 1px solid rgb(46, 46, 46);
+}
 
-/* .footer  {
-    color: black !important;
-    border-bottom: 5px solid #D9531E;
-  } */
+ul li:hover > ul {
+    display: block;
+}
+
+ul > li ul ul {
+    left: 200px; 
+    top: -1px;
+}
+
+ul > li ul li {
+    margin: 0; 
+    padding: 0;
+    position: relative; 
+    float: none; 
+    height: auto;
+}
+
+ul > li ul li a {
+    padding: 10px 20px; 
+    color: #2c3e50; 
+    text-decoration: none;
+    display: block;
+}
+
+ul > li ul li a:hover,
+ul > li ul li:hover > a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #c4d10d;
+}
+
