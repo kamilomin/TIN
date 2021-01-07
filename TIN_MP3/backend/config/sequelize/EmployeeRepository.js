@@ -3,6 +3,8 @@ const Employee = require("../../model/sequelize/Employee");
 const Employment = require("../../model/sequelize/Employment");
 const Department = require("../../model/sequelize/Department");
 const MakeOrderEmployee = require('../../model/sequelize/MakeOrderEmployee');
+const empSchema = require('../../model/joi/Employee');
+
 exports.getEmployees = () => {
     return Employee.findAll();
 };
@@ -34,8 +36,8 @@ exports.getEmployeeById = (empId) => {
 // };
 exports.createEmployee = (newEmpData) => {
     const vRes = empSchema.validate(newEmpData, { abortEarly: false} );
-    if(error) {
-        return Promise.reject(error);
+    if(vRes.error) {
+        return Promise.reject(vRes.error);
     }
     return checkEmailUnique(newEmpData.email)
         .then(emailErr => {
