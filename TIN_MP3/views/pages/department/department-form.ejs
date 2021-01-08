@@ -21,12 +21,14 @@
             <span id="errorDepartmentBudget" class="errors-text"></span>
 
             <div class="form-buttons" >
+                <% if(loggedUser) { %>
+                    <% if(loggedUser.accessLevel>1) { %>
                 <p id="errorsSummary" class="errors-text"></p>
                 <% if (formMode == 'showDetails') { %>
                     <div class="section-buttons">
                         <a href="/departments/edit/<%= dept._id %>" class="form-button-edit">Edytuj</a>
                     </div>
-                <% } %>
+                <% }}} %>
                 <!-- <input type="submit" value="Dodaj" class="form-button-submit" />    -->
                 <% if (formMode != 'showDetails') { %>
                     <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />

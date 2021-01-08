@@ -47,24 +47,26 @@
             <label for="password">Pass:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="password" name="password" id="password" placeholder="12345" value="<%= emp.password %>" 
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-            <div> <span id="errorPassword" class="errors-text"></span> pass !</div>
+            <div> <span id="errorPassword" class="errors-text"></span></div>
 
             <label for="accessLevel">accessLevel:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="accessLevel" name="accessLevel" id="accessLevel"  placeholder="0" value="<%= emp.accessLevel %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-            <div> <span id="errorAccessLevel" class="errors-text"></span> acceslevel</div>
+            <div> <span id="errorAccessLevel" class="errors-text"></span></div>
 
             <label for="email">Email:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= emp.email %>"  
             <div> <span id="errorEmail" class="errors-text"> </span> Sprawdz dlaczego jak email sie powtarza to nie paktualizuje SPRAWDZIŁEM W MOEDEL SEQUALIZE JEST UNIQUE TRUE</div>
             
             <div class="form-buttons" >
-                <p id="errorsSummary" class="errors-text"></p>
+                <% if(loggedUser) { %>
+                    <% if(loggedUser.accessLevel>1) { %>
+                        <p id="errorsSummary" class="errors-text"></p>
                 <% if (formMode == 'showDetails') { %>
                     <div class="section-buttons">
                         <a href="/employees/edit/<%= emp._id %>" class="form-button-edit">Edytuj</a>
                     </div>
-                <% } %>
+                <% } } } %>
                
                 <% if (formMode != 'showDetails') { %>
                     <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />

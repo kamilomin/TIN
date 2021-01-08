@@ -20,6 +20,17 @@ exports.permitAuthenticatedUser = (req, res, next) => {
     if(loggedUser) {
         next();
     } else {
+       // res.redirect('/');
+        throw new Error('unauthorized access');
+    }
+}
+
+exports.permitAuthenticatedUserAccessLevel_2 = (req, res, next) => {
+    const loggedUser = req.session.loggedUser;
+    if(loggedUser.accessLevel >1) {
+        next();
+    } else {
+       // res.redirect('/');
         throw new Error('unauthorized access');
     }
 }

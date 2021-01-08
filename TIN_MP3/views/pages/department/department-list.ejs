@@ -16,8 +16,12 @@
                         <td>
                             <ul class="list-actions">
                                 <li><a href="/departments/details/<%=dept._id%>" class="list-actions-button-details">Szczegóły</a></li>
+                                <% if(loggedUser) { %>
+                                    <% if(loggedUser.accessLevel>1) { %>
                                 <li><a href="/departments/edit/<%=dept._id%>" class="list-actions-button-edit">Edytuj</a></li>
                                 <li><a href="/departments/delete/<%=dept._id%>" class="list-actions-button-delete">Usuń</a></li>
+                                <% } %>
+                                <% } %>
                             </ul>
                         </td>
                     </tr>
