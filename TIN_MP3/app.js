@@ -48,16 +48,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/sign', signRouter);
 app.use('/employees', authUtils.permitAuthenticatedUser, employeeRouter);
-app.use('/departments', authUtils.permitAuthenticatedUserAccessLevel_2, departmentRouter); //hm jakz robic to po /
+app.use('/departments', authUtils.permitAuthenticatedUser, departmentRouter); //hm jakz robic to po /
 app.use('/employments', authUtils.permitAuthenticatedUser, employmentRouter);
 app.use('/orders', authUtils.permitAuthenticatedUser,  orderRouter);
 app.use('/makeOrderEmployees', authUtils.permitAuthenticatedUser, makeOrderEmployeeRouter);
+//authUtils.permitAuthenticatedUserAccessLevel_2
 
-app.use('/employees/', authUtils.permitAuthenticatedUserAccessLevel_2, employeeRouter);
-app.use('/departments/', authUtils.permitAuthenticatedUserAccessLevel_2, departmentRouter);
-app.use('/employments/', authUtils.permitAuthenticatedUserAccessLevel_2, employmentRouter);
-app.use('/orders/', authUtils.permitAuthenticatedUserAccessLevel_2,  orderRouter);
-app.use('/makeOrderEmployees/', authUtils.permitAuthenticatedUserAccessLevel_2, makeOrderEmployeeRouter);
 //===================================================
 /* jezeli chce lapac errory to musze ulepszyc kod bo teraz blokuja odpowiedzi bazy danych - wiec je wylaczam
 // catch 404 and forward to error handler
