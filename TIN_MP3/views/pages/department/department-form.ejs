@@ -2,7 +2,7 @@
 
 <main>
     <!-- PO CO TO SKORO NIE DZIALA ????? -->
-    <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+    <script type="application/javascript" src="/js/validationDeptForm.js"></script>
     <h2><%= pageTitle %></h2>
         
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
@@ -13,18 +13,18 @@
             <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>   
             <input type="text" name="name" id="name" placeholder="2-60 znaków" value="<%= dept.name %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-            <span id="errorName" class="errors-text"></span>
+            <span id="errorDepartmentName" class="errors-text"></span>
           
             <label for="budget">Budżet:<abbr title="required" aria-label="required">*</abbr></label>   
             <input type="text" name="budget" id="budget" placeholder="np. 10 000" value="<%= dept.budget %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-            <span id="errorBudget" class="errors-text"></span>
+            <span id="errorDepartmentBudget" class="errors-text"></span>
 
             <div class="form-buttons" >
                 <p id="errorsSummary" class="errors-text"></p>
                 <% if (formMode == 'showDetails') { %>
                     <div class="section-buttons">
-                        <a href="/departments/edit/<%= dept._id %>" class="button-edit">Edytuj</a>
+                        <a href="/departments/edit/<%= dept._id %>" class="form-button-edit">Edytuj</a>
                     </div>
                 <% } %>
                 <!-- <input type="submit" value="Dodaj" class="form-button-submit" />    -->

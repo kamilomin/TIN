@@ -60,3 +60,8 @@ exports.deleteEmployment = (employmentId) => {
 exports.deleteManyEmployments = (employmentIds) => {
     return Employment.find({ _id: { [Sequelize.Op.in]: employmentIds }})
 }
+
+exports.closeEmployment = (employmentId, data) => {
+    data.dateTo =  Date.now();
+    return Employment.update(data, {where: {_id: employmentId }});
+}

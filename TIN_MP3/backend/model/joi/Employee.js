@@ -1,27 +1,36 @@
 const Joi = require('joi');
 
 
-const errMessages = (errors) => {
-    errors.forEach(err => {
-        switch (err.code) {
-            case "string.empty":
-                err.message = "Pole jest wymagane";
-                break;
-            case "string.min":
-                err.message = `Pole powinno zawierać co najmniej ${err.local.limit} znaki`;
-                break;
-            case "string.max":
-                err.message = `Pole powinno zawierać co najwyżej ${err.local.limit} znaki`;
-                break;
-            case "string.email":
-                err.message = `Pole powinno zawierać prawidłowy adres email`;
-                break;
-            default:
-                break;
-        }
-    });
-    return errors;
+// const errMessages = (errors) => {
+//     errors.forEach(err => {
+//         switch (err.code) {
+//             case "string.empty":
+//                 err.message = "Pole jest wymagane";
+//                 break;
+//             case "string.min":
+//                 err.message = `Pole powinno zawierać co najmniej ${err.local.limit} znaki`;
+//                 break;
+//             case "string.max":
+//                 err.message = `Pole powinno zawierać co najwyżej ${err.local.limit} znaki`;
+//                 break;
+//             case "string.email":
+//                 err.message = `Pole powinno zawierać prawidłowy adres email`;
+//                 break;
+//             default:
+//                 break;
+//         }
+//     });
+//     return errors;
+// }
+const errMessages = (err) => {
+err.errors.forEach(e => {
+    if(e.path.includes('email') && e.type == 'unique violation') {
+        e.message = "Podany adres email jest już używany";
+    }
+ });
+ return err;
 }
+
 const empSchema = Joi.object({
     _id: Joi.number()
         .optional()

@@ -12,5 +12,7 @@ router.post('/add', employmentController.addEmployment);
 router.post('/edit', employmentController.updateEmployment);
 router.get('/delete/:employmentSCId', employmentController.deleteEmployment);
 
+router.get('/close/:employmentSCId', employmentController.closeEmployment); 
+
 module.exports = router;
 

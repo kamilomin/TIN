@@ -9,6 +9,8 @@
                 <th>Imię</th>
                 <th>Departament</th>
                 <th>Pensja</th>
+                <th>Zaczeto</th>
+                <th>zakonczono</th>
                 <th>Akcje</th>
             </tr>
         <tbody>
@@ -23,6 +25,8 @@
                 <td><%= employmentSC.employee.firstName %></td>
                 <td><%= employmentSC.department.name %></td>
                 <td><%= employmentSC.salary %></td>
+                <td> <%= employmentSC.dateFrom.toISOString().split('T')[0] %></td>
+                <td>Trwa nadal- <a href="/employments/close/<%=employmentSC._id%>" class="list-actions-button-submit" >Zakoncz(z dzisiejsza data)</a> </td>
                 <td>
                     <ul class="list-actions">
                         <li><a href="/employments/details/<%=employmentSC._id%>"
@@ -50,6 +54,8 @@
                 <th>Imię</th>
                 <th>Departament</th>
                 <th>Pensja</th>
+                <th>Zaczeto</th>
+                <th>Zakonczono/th>
                 <th>Akcje</th>
             </tr>
         <tbody>
@@ -64,6 +70,8 @@
                 <td><%= employmentSC.employee.firstName %></td>
                 <td><%= employmentSC.department.name %></td>
                 <td><%= employmentSC.salary %></td>
+                <td> <%= employmentSC.dateFrom.toISOString().split('T')[0] %></td>
+                <td> <%= employmentSC.dateTo.toISOString().split('T')[0] %></td>
                 <td>
                     <ul class="list-actions">
                         <li><a href="/employments/details/<%=employmentSC._id%>"

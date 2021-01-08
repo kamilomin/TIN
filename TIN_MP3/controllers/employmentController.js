@@ -23,6 +23,7 @@ exports.showEmploymentList = (req, res, next) => {
     .then(employmentSCs => {
         res.render('pages/employment/employment-list', {
             employmentSCs: employmentSCs,
+            btnLabel: 'zakończ',
             // emps: emps,
             // depts: depts,
             navLocation: 'employmentSC'
@@ -134,6 +135,16 @@ exports.updateEmployment = (req, res, next) => {
 exports.deleteEmployment = (req, res, next) => {
     const employmentSCId = req.params.employmentSCId;
     EmploymentRepository.deleteEmployment(employmentSCId)
+        .then( () => {
+            res.redirect('/Employments');
+        });
+};
+
+
+exports.closeEmployment = (req, res, next) => {
+    const employmentSCId = req.params.employmentSCId;
+    const employmentSCData = { ...req.body };
+    EmploymentRepository.closeEmployment(employmentSCId, employmentSCData)
         .then( () => {
             res.redirect('/Employments');
         });

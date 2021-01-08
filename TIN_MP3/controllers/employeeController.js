@@ -81,7 +81,7 @@ exports.showEmployeeEdit = (req, res, next) => {
                 btnLabel: 'Potwierdź edycje',
                 formAction: '/employees/edit',
                 navLocation: 'emp',
-               
+                validationErrors: []
             })
            
         });
@@ -110,7 +110,7 @@ exports.addEmployee = (req, res, next) => {
                 btnLabel: 'Dodaj pracownika',
                 formAction: '/employees/add',
                 navLocation: 'emp',
-                validationErrors: err.details
+                validationErrors: []
             });
         });
 };

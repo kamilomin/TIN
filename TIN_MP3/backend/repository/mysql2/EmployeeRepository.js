@@ -99,8 +99,8 @@ return db.promise().query(query, [empId])
 
 exports.createEmployee = (newEmpData) => {
     const vRes = empSchema.validate(newEmpData, { abortEarly: false} );
-    if(error) {
-        return Promise.reject(error);
+    if(vRes.error) {
+        return Promise.reject(vRes.error);
     }
     return checkEmailUnique(newEmpData.email)
         .then(emailErr => {
@@ -121,8 +121,8 @@ exports.createEmployee = (newEmpData) => {
 exports.updateEmployee = (empId, empData) => {
     exports.createEmployee = (newEmpData) => {
         const vRes = empSchema.validate(newEmpData, { abortEarly: false} );
-        if(error) {
-            return Promise.reject(error);
+        if(vRes.error) {
+            return Promise.reject(vRes.error);
         }
         return checkEmailUnique(newEmpData.email)
             .then(emailErr => {

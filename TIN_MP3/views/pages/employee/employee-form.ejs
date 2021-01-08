@@ -4,10 +4,10 @@
          <!-- PO CO TO SKORO NIE DZIALA ????? -->
          <script type="application/javascript" src="/js/validationEmpForm.js"></script>
       
-         <form class="form" method="post" action="<%=formAction%>" novalidate >
+         <!-- <form class="form" method="post" action="<%=formAction%>" novalidate > sprawdzenie dzialania walidacji serwera, wylaczenie po stronie klienta--> 
 
-        <!-- <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();"> -->
-<!-- WŁĄĆZ LINIJKE WYZEJ POTEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM -->
+         <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
 
 
             <!-- <input type="text" name="firstName" id="firstName"> -->
@@ -43,16 +43,26 @@
             <input type="date" name="date" id="date"  />
             <div> <span id="errorDate" class="errors-text"></span> Będzie w krotce, teraz nie uzywac !</div>
         
+           
+            <label for="password">Pass:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="password" name="password" id="password" placeholder="12345" value="<%= emp.password %>" 
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+            <div> <span id="errorPassword" class="errors-text"></span> pass !</div>
+
+            <label for="accessLevel">accessLevel:<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="accessLevel" name="accessLevel" id="accessLevel"  placeholder="0" value="<%= emp.accessLevel %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+            <div> <span id="errorAccessLevel" class="errors-text"></span> acceslevel</div>
+
             <label for="email">Email:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl" value="<%= emp.email %>"  
             <div> <span id="errorEmail" class="errors-text"> </span> Sprawdz dlaczego jak email sie powtarza to nie paktualizuje SPRAWDZIŁEM W MOEDEL SEQUALIZE JEST UNIQUE TRUE</div>
-
-           
+            
             <div class="form-buttons" >
                 <p id="errorsSummary" class="errors-text"></p>
                 <% if (formMode == 'showDetails') { %>
                     <div class="section-buttons">
-                        <a href="/employees/edit/<%= emp._id %>" class="button-edit">Edytuj</a>
+                        <a href="/employees/edit/<%= emp._id %>" class="form-button-edit">Edytuj</a>
                     </div>
                 <% } %>
                
