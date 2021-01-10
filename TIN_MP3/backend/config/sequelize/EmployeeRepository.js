@@ -4,7 +4,7 @@ const Employment = require("../../model/sequelize/Employment");
 const Department = require("../../model/sequelize/Department");
 const MakeOrderEmployee = require('../../model/sequelize/MakeOrderEmployee');
 const empSchema = require('../../model/joi/Employee');
-
+const authUtil = require('../../util/authUtils');
 exports.getEmployees = () => {
     return Employee.findAll();
 };
@@ -28,6 +28,7 @@ exports.getEmployeeById = (empId) => {
 };
 
  exports.createEmployee = (newEmpData) => {
+    newEmpData.password = authUtil.hashPassword(newEmpData.password);
      return Employee.create({
           firstName: newEmpData.firstName,
           lastName: newEmpData.lastName,
@@ -83,6 +84,8 @@ exports.updateEmployee = (empId, empData) => {
 //        .catch(err => {
 //            return Promise.reject(err);
 //        });
+
+empData.password = authUtil.hashPassword(newEmpData.password);
    return Employee.update(empData, {where: {_id: empId }});
 };
 
