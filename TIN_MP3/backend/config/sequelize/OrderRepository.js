@@ -11,7 +11,7 @@ exports.getOrderById = (orderId) => {
         {
             include: [{
                 model: makeOrderEmployee,
-                as: 'makeOrderEmployee',
+                as: 'makeOrderEmployees',
             include: [{
                 model: Employee,
                 as: 'employee'

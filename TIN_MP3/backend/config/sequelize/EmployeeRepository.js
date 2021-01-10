@@ -17,15 +17,26 @@ exports.getEmployeeById = (empId) => {
                 as: 'employments',
             include: [{
                 model: Department,
-                as: 'department'}]}],
-            //  include: [{
-            //      model: MakeOrderEmployee,
-            //      as: 'makeOrderEmployees',
-            //      }]
-            
+                as: 'department',
+             }]}],
+             
         
         });
 };
+exports.getEmployeeByIdforOrder = (empId) => {
+    return Employee.findByPk(empId,{
+        include: [{
+            model: MakeOrderEmployee,
+            as: 'makeOrderEmployees',
+            include: [{
+                model: Department,
+                as: 'department',
+             }],
+        }],
+    });
+};
+
+
 
  exports.createEmployee = (newEmpData) => {
     newEmpData.password = authUtil.hashPassword(newEmpData.password);

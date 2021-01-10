@@ -57,6 +57,9 @@ header {
 }
 nav {
     background-color: #bdc3c7;
+    /* overflow:hidden; */
+    overflow-wrap: 10px;
+    flex-wrap: wrap; 
 }
 nav ul {
     padding: 0;
@@ -322,21 +325,22 @@ abbr[title='required'] {
   
 @media all and (max-width: 720px) {
     header {
+        background-color: #c0392b;
         flex-direction: column;
     }
     header h1 {
-        text-align: center;
+        text-align: center; background-color: #c0392b;
     }
     header img {
-        align-self: center;
+        align-self: center; background-color: #c0392b;
     }
     nav ul {
-        flex-wrap: wrap;
+        flex-wrap: wrap; background-color: #c0392b;
     }
 
     nav ul li {
         flex-basis: 50%;
-        text-align: center;
+        text-align: center; background-color: #c0392b;
     }
 
     nav ul li a {
@@ -370,7 +374,16 @@ abbr[title='required'] {
         flex-basis: 100%;
     }
 }
+@media all and (max-width: 1200px) {
+    nav ul {
+        flex-wrap: wrap; 
+    }
+    nav ul li a {
+        display: block;
+    }
 
+   
+}
 
 /* tu jakis problem moze to nie potrzebne  */
 /* .form-buttons {

@@ -14,7 +14,7 @@ exports.showMakeOrderEmployeeList = (req, res, next) => {
             makeOrderEmployeeSCs: makeOrderEmployeeSCs,
             // emps: emps,
             // Orders: Orders,
-            navLocation: 'MakeOrderEmployeeSC'
+            navLocation: 'makeOrderEmployee'
         });
     });
 }
@@ -36,7 +36,7 @@ exports.showAddMakeOrderEmployeeForm = (req, res, next) => {
                 pageTitle: 'Nowe zatrudnienia',
                 btnLabel: 'Dodaj zatrudnienie',
                 formAction: '/MakeOrderEmployees/add',
-                navLocation: 'MakeOrderEmployeeSC'
+                navLocation: 'makeOrderEmployee'
             });
         });
 }
@@ -47,7 +47,7 @@ exports.showMakeOrderEmployeeDetails = (req, res, next) => {
     EmployeeRepository.getEmployees()
     .then(emps => {
         allEmps = emps;
-        return OrderRepository.getDepartments();
+        return OrderRepository.getOrders();
     })
     .then(Orders => {
         allOrders = Orders;
@@ -63,7 +63,7 @@ exports.showMakeOrderEmployeeDetails = (req, res, next) => {
                 allOrders: allOrders,
                 pageTitle: 'Szczegóły departamentu',
                 formAction: '',
-                navLocation: 'MakeOrderEmployeeSC'
+                navLocation: 'makeOrderEmployee'
             });
         });
 }
@@ -74,7 +74,7 @@ exports.showMakeOrderEmployeeEdit = (req, res, next) => {
     EmployeeRepository.getEmployees()
     .then(emps => {
         allEmps = emps;
-        return OrderRepository.getDepartments();
+        return OrderRepository.getOrders();
     })
     .then(Orders => {
         allOrders = Orders;
@@ -89,7 +89,7 @@ exports.showMakeOrderEmployeeEdit = (req, res, next) => {
                 pageTitle: 'Edycja departamentu',
                 btnLabel: 'Potwierdź edycje',
                 formAction: '/MakeOrderEmployees/edit',
-                navLocation: 'MakeOrderEmployeeSC'
+                navLocation: 'makeOrderEmployee'
             });
         });
 };
