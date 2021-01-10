@@ -10,7 +10,146 @@
              Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. 
              Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. 
              Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</p>
-    
+             
+           
+                <div class="container">
+            
+              
+              <h1 class="text-center">
+                Projekt
+                
+                <hr>
+                <small>
+                  Wymagania
+                </small>
+                
+              </h1>
+              <hr>
+              
+            
+              <p>Celem projektu jest zrealizowanie aplikacji internetowej realizującej zadane funkcjonalności, są one różne w zależności od progu ocenowego:</p>
+            
+            <ul id="markdown-toc">
+              <li><a href="#ocena-3" id="markdown-toc-ocena-3">Ocena 3</a></li>
+              <li><a href="#ocena-4" id="markdown-toc-ocena-4">Ocena 4</a></li>
+              <li><a href="#ocena-5" id="markdown-toc-ocena-5">Ocena 5</a></li>
+            </ul2>
+            
+            <hr>
+            
+            <h2 id="ocena-3">Ocena 3</h2>
+            
+            <h4 class="no_toc" id="model">Model:</h4>
+            <ul2>
+              <li>3 tabele w bazie (w tym jedna relacja wiele-do-wiele zawierająca oprócz kluczy obcych przynajmniej jedno dodatkowe pole)</li>
+              <li>Przynajmniej 3 różne typy pól</li>
+              <li>Przynajmniej 2 pola biznesowe w każdej tabeli (chodzi o pola oprócz klucza głównego)</li>
+            </ul2>
+            
+            <h4 class="no_toc" id="funkcjonalności-dla-każdej-z-tabel">Funkcjonalności (dla każdej z tabel):</h4>
+            <ul2>
+              <li>Dodawanie nowego rekordu do bazy danych</li>
+              <li>Modyfikacja rekordu w bazie danych</li>
+              <li>Usuwanie rekordu z bazy danych</li>
+              <li>Wyświetlenie listy wszystkich dostępnych rekordów (tylko najważniejsze kolumny)</li>
+              <li>Wyświetlenie widoku szczegółów rekordu (wszystkie kolumny + rekordy powiązane relacją wiele-do-wiele)</li>
+            </ul2>
+            
+            <h4 class="no_toc" id="walidacja-danych-formularza">Walidacja danych formularza:</h4>
+            <ul2>
+              <li>Po stronie klienta</li>
+              <li>Po stronie serwera</li>
+            </ul2>
+            
+            <hr>
+            
+            <h2 id="ocena-4">Ocena 4</h2>
+            
+            <h4 class="no_toc" id="dodatkowe-funkcjonalności">Dodatkowe funkcjonalności:</h4>
+            
+            <ul2>
+              <li>Możliwość rejestracji użytkownika uwierzytelniającego się hasłem.
+                <ul2>
+                  <li>Zastosowanie mechanizmu bezpiecznego przechowywania haseł w bazie danych</li>
+                </ul2>
+              </li>
+              <li>Możliwość uwierzytelnienia (zalogowania użytkownika) z wykorzystaniem unikalnego loginu i hasła zdefiniowanego przy rejestracji.</li>
+            </ul2>
+        
+            <h4 class="no_toc" id="dodatkowe-funkcjonalności-1">Dodatkowe funkcjonalności:</h4>
+        
+            <ul2>
+              <li>W zależności od poziomu uprawnień (użytkownik zalogowany/niezalogowany) dostępne są różne funkcjonalności, np.:
+                <ul2>
+                  <li>dodawanie/edycja danych dostępna tylko dla użytkownika zalogowanego,</li>
+                  <li>użytkownik niezalogowany może tylko przeglądać istniejące dane</li>
+                </ul2>
+              </li>
+            </ul2>
+            
+            <h4 class="no_toc" id="komunikaty">Komunikaty:</h4>
+            <ul2>
+              <li>po dodaniu nowego rekordu</li>
+              <li>po zmodyfikowaniu rekordu</li>
+              <li>przy usunięciu rekordu z prośbą o potwierdzenie</li>
+              <li>po usunięciu rekordu</li>
+            </ul2>
+            
+            <hr>
+            
+            <h2 id="ocena-5">Ocena 5</h2>
+            
+            <h4 class="no_toc" id="dodatkowe-wymagania">Dodatkowe wymagania:</h4>
+            <ul2>
+              <li>Aplikacja kliencka powinna być stworzona w technologii Single Page Application (np. Angular, React, Vue.js).</li>
+              <li>Aplikacja powinna zawierać własny backend z częścią bazodanową.</li>
+            </ul2>
+            
+            <h4 class="no_toc" id="dodatkowe-funkcjonalności-2">Dodatkowe funkcjonalności:</h4>
+            <ul2>
+              <li>Przynajmniej 3 role użytkowników, np.:
+                <ul2>
+                  <li>niezalogowany</li>
+                  <li>użytkownik zarejestrowany</li>
+                  <li>admin</li>
+                </ul2>
+              </li>
+              <li>Wprowadzenie mechanizmu bezpieczeństwa na poziomie zasobów, np.
+                <ul2>
+                  <li>klient może oglądać tylko swoje zamówienia</li>
+                  <li>menadżer może oglądać tylko dane pracowników ze swojego departamentu</li>
+                </ul2>
+              </li>
+              <li>Wprowadzenie wielojęzycznej wersji strony (przynajmniej 2 języki)</li>
+            </ul2>
+
+            <hr>
+            <h2 class="no_toc" id="uwagi">Uwagi</h2>
+            
+            <ul2>
+              <li>Cały rozkład strony (CSS) powinien być robiony samodzielnie samodzielnie - bez używania gotowych frameworków.</li>
+              <li>Zabronione jest powielanie gotowych tutoriali - projekt powinien stanowić pracę samodzielną (autorską).</li>
+              <li>Niedopuszczalne jest wykorzystanie generatora aplikacji (scaffold) obecnego np. w .NET MVC, Ruby on Rails, Django (w szczególności panel administratora) itp.</li>
+            </ul2>
+            
+            <h2 class="no_toc" id="oddanie-projektu">Oddanie projektu</h2>
+            <ul2>
+              <li>Kompletny kod aplikacji</li>
+              <li>Instrukcja instalacji i uruchomienia
+                <ul2>
+                  <li>Mile widziane wykorzystanie kontenera Dockerowego dla bazy danych</li>
+                </ul2>
+              </li>
+              <li>Skrypt bazy danych tworzący schemat (jeśli wymagany)</li>
+              <li>Skrypt zasilający bazę danych przykładowymi danymi</li>
+            </ul2>
+            
+            
+                </div>
+              
+            
+            
+          
 </main>
 
 <%- include('./fragments/footer.ejs') %>

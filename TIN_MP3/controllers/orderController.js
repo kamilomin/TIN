@@ -21,9 +21,9 @@ exports.showOrderList = (req, res, next) => {
 exports.showAddOrderForm = (req, res, next) => {
     res.render('pages/Order/Order-form', {
         order: {},
-        pageTitle: 'Nowy departament',
+        pageTitle: 'Nowe zamówienie',
         formMode: 'createNew',
-        btnLabel: 'Dodaj departament',
+        btnLabel: 'Dodaj zamówienie',
         formAction: '/Orders/add',
         navLocation: 'order'
     });
@@ -38,7 +38,7 @@ exports.showOrderDetails = (req, res, next) => {
             res.render('pages/Order/Order-form', {
                 order: order,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły departamentu',
+                pageTitle: 'Szczegóły zamówienia',
                 formAction: '',
                 navLocation: 'order'
             });
@@ -56,7 +56,7 @@ exports.showOrderEdit = (req, res, next) => {
             res.render('pages/Order/Order-form', {
                 order: order,
                 formMode: 'edit',
-                pageTitle: 'Edycja departamentu',
+                pageTitle: 'Edycja zamówienia',
                 btnLabel: 'Potwierdź edycje',
                 formAction: '/Orders/edit',
                 navLocation: 'order'

@@ -1,34 +1,78 @@
 <%- include('../../fragments/header.ejs') %>
-<main>
-    <h2>Szczegoly Zamowienia</h2>
-    <form class="form" novalidate onsubmit="return validateForm();">
- 
-        <label for="nrZamowienia">nrZamowienia:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="nrZamowienia"  id="nrZamowienia"  />
-        <span id="errorOrderNumber" class="errors-text"></span>
-    
-        <label for="opis">Opis:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="text" name="opis"  id="opis"  />
-        <span id="errorOpis" class="errors-text"></span>
-        
-        <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
-        <input type="date" name="date"  id="date"  />
-        <span id="errorDate" class="errors-text"></span>
 
-           
-            <div class="form-buttons">
-                <p id="errorsSummary" class="errors-text"></p>
-                <input type="submit"  class="form-button-submit" />   
-                <a href="/orders" class="form-button-cancel">Anuluj</a>
-            </div>
+<main>
+    <!-- PO CO TO SKORO NIE DZIALA ????? // juz dziala ?-->
+    <script type="application/javascript" src="/js/validationOrderForm.js"></script>
+    <h2><%= pageTitle %></h2>
         
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+          
+          
+            <input type="hidden" name="_id" value="<%= order._id %>">
+    
+            <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>   
+            <input type="text" name="name" id="name" placeholder="2-60 znaków" value="<%= order.name %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorOrderName" class="errors-text"></span>
+          
+            <label for="description">Opis:<abbr title="required" aria-label="required">*</abbr></label>   
+            <input type="text" name="description" id="description" placeholder="np. 10 000" value="<%= order.description %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+            <span id="errorOrderDescription" class="errors-text"></span>
+
+            <label for="dateArrival">Data przyjecia:<abbr title="required" aria-label="required">*</abbr></label>   
+            <input type="date" name="dateArrival" id="dateArrival"  
+            <% if(order.dateArrival) {%> value="<%= order.dateArrival.toISOString().split('T')[0] %>"<%}%>  <%= (formMode == 'showDetails' ) ? 'disabled' : ''%>/>
+            <div> <span id="errorDateArrival" class="errors-text"></span></div>
+
+            <div class="form-buttons" >
+                <% if(loggedUser) { %>
+                    <% if(loggedUser.accessLevel>1) { %>
+                <p id="errorsSummary" class="errors-text"></p>
+                <% if (formMode == 'showDetails') { %>
+                    <div class="section-buttons">
+                        <a href="/Orders/edit/<%= order._id %>" class="form-button-edit">Edytuj</a>
+                    </div>
+                <% }}} %>
+                <!-- <input type="submit" value="Dodaj" class="form-button-submit" />    -->
+                <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                    <a class="form-button-cancel" href="/Orders">Anuluj</a>
+                <% } else { %>
+                    <a class="form-button-cancel" href="/Orders">Powrót</a>
+                <% } %>
+            </div>
         
           
     </form>
- 
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>
+           Lista pracowników pracujących nad zamówieniem <%= order.name %>
+        </h2>
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Akcje</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let e of order.makeOrderEmployees) { %>
+                <tr>
+                    <td><a href="/employees/details/<%= e.employee._id %>"><%= e.employee.firstName %></a></td> 
+                    <td><%= e.employee.lastName %></td> 
+                    <td>Brak akcji</td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } %>
+    
     
 
 
-</main>
-
 <%- include('../../fragments/footer.ejs') %>
+
+
+

@@ -43,8 +43,8 @@ footer{
     position: fixed;
    /* margin-right: 1rem;*/
 }
-/*  kurla dlaczego to dziala ???? a jak suuwam to mi psuje wszystko xD */
-footerExtension{   
+/*  kurczaczki dlaczego to dziala ???? a jak usuwam to mi psuje wszystko xD */
+footerExtension {   
     bottom:0; 
     position: fixed;
     margin-bottom: 1rem;
@@ -375,6 +375,9 @@ abbr[title='required'] {
     }
 }
 @media all and (max-width: 1200px) {
+    header {
+        flex-wrap: wrap; 
+    }
     nav ul {
         flex-wrap: wrap; 
     }
