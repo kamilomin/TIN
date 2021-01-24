@@ -33,7 +33,7 @@ module.exports = () => {
 
     let allEmps, allDepts;
     return sequelize
-        .sync({force: false}) // jak wlacze true to wymusza drop table i inicjalizuje od 0
+        .sync({force: true}) // jak wlacze true to wymusza drop table i inicjalizuje od 0
         .then( () => {
             return Employee.findAll();
         })
