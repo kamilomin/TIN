@@ -20,7 +20,7 @@ exports.getOrderById = (orderId) => {
         });
 };
 
-exports.createOrder = (neworderData) => {
+exports.createOrder = (newOrderData) => {
     return Order.create({
         name: newOrderData.name,
         description: newOrderData.description,

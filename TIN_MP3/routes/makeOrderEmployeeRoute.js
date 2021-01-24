@@ -10,6 +10,9 @@ router.get('/add', makeOrderEmployeeController.showAddMakeOrderEmployeeForm);
 router.get('/details/:makeOrderEmployeeId', makeOrderEmployeeController.showMakeOrderEmployeeDetails);
 
 router.get('/edit/:makeOrderEmployeeId', makeOrderEmployeeController.showMakeOrderEmployeeEdit);
+router.post('/add', makeOrderEmployeeController.addMakeOrderEmployee); 
+router.post('/edit', makeOrderEmployeeController.updateMakeOrderEmployee);
+router.get('/delete/:MakeOrderEmployeeSCId', makeOrderEmployeeController.deleteMakeOrderEmployee);
 
 module.exports = router;
 

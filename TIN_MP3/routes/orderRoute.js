@@ -11,5 +11,9 @@ router.get('/details/:orderId', orderCotroller.showOrderDetails);
 
 router.get('/edit/:orderId', orderCotroller.showOrderEdit);
 
+router.post('/add',  orderCotroller.addOrder); 
+router.post('/edit', orderCotroller.updateOrder);
+router.get('/delete/:empId',  orderCotroller.deleteOrder);
+
 module.exports = router;
 

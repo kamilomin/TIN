@@ -76,7 +76,7 @@ exports.addOrder = (req, res, next) => {
         })
         .catch(err => {
             res.render('pages/order/order-form', {
-                emp: empData,
+                order: orderData,
                 pageTitle: 'Dodawanie zamowienia',
                 formMode: 'createNew',
                 btnLabel: 'Dodaj zamowienie',
@@ -96,7 +96,7 @@ exports.updateOrder = (req, res, next) => {
         })
         .catch(err => {
             res.render('pages/order/order-form', {
-                emp: empData,
+                order: orderData,
                 pageTitle: 'Edycja zamowienia',
                 formMode: 'edit',
                 btnLabel: 'Edytuj zamowinie',

@@ -99,6 +99,16 @@ exports.addMakeOrderEmployee = (req, res, next) => {
     MakeOrderEmployeeRepository.createMakeOrderEmployee(MakeOrderEmployeeSCData)
         .then( result => {
             res.redirect('/MakeOrderEmployees');
+        })
+        .catch(err => {
+            res.render('pages/MakeOrderEmployees/MakeOrderEmployee-form', {
+                emp: empData,
+                pageTitle: 'Przypisywanie do zamowienia',
+                formMode: 'createNew',
+                formAction: '/MakeOrderEmployees/add',
+                navLocation: 'makeOrderEmployee',
+                validationErrors: []
+            });
         });
 };
 
@@ -107,7 +117,8 @@ exports.updateMakeOrderEmployee = (req, res, next) => {
     const MakeOrderEmployeeSCData = { ...req.body };
     MakeOrderEmployeeRepository.updateMakeOrderEmployee(MakeOrderEmployeeSCId, MakeOrderEmployeeSCData)
         .then( result => {
-            res.redirect('/MakeOrderEmployees');
+            res.redirect('/MakeOrderEmployees'),{
+            validationErrors: [err.details]}
         });
 };
 
@@ -115,6 +126,7 @@ exports.deleteMakeOrderEmployee = (req, res, next) => {
     const MakeOrderEmployeeSCId = req.params.MakeOrderEmployeeSCId;
     MakeOrderEmployeeRepository.deleteMakeOrderEmployee(MakeOrderEmployeeSCId)
         .then( () => {
-            res.redirect('/MakeOrderEmployees');
+            res.redirect('/MakeOrderEmployees'),{
+                validationErrors: []};
         });
 };

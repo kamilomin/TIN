@@ -1,7 +1,7 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <!-- PO CO TO SKORO NIE DZIALA ????? // juz dziala ?-->
+ 
     <script type="application/javascript" src="/js/validationOrderForm.js"></script>
     <h2><%= pageTitle %></h2>
         
@@ -10,15 +10,15 @@
           
             <input type="hidden" name="_id" value="<%= order._id %>">
     
-            <label for="name">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>   
-            <input type="text" name="name" id="name" placeholder="2-60 znaków" value="<%= order.name %>"
+            <label for="nameInput">Nazwa:<abbr title="required" aria-label="required">*</abbr></label>   
+            <input type="text" name="nameInput" id="nameInput" placeholder="2-60 znaków" value="<%= order.name %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-            <span id="errorOrderName" class="errors-text"></span>
+            <span id="errorOrdernameInput" class="errors-text"></span>
           
-            <label for="description">Opis:<abbr title="required" aria-label="required">*</abbr></label>   
-            <input type="text" name="description" id="description" placeholder="wpisz opis" value="<%= order.description %>"
+            <label for="descriptionInput">Opis:<abbr title="required" aria-label="required">*</abbr></label>   
+            <input type="text" name="descriptionInput" id="descriptionInput" placeholder="wpisz opis" value="<%= order.description %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
-            <span id="errorOrderDescription" class="errors-text"></span>
+            <span id="errorOrderdescriptionInput" class="errors-text"></span>
 
             <label for="dateArrival">Data przyjecia:<abbr title="required" aria-label="required">*</abbr></label>   
             <input type="date" name="dateArrival" id="dateArrival"  
