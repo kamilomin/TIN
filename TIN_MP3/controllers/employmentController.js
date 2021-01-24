@@ -51,7 +51,8 @@ exports.showAddEmploymentForm = (req, res, next) => {
                 pageTitle: 'Nowe zatrudnienia',
                 btnLabel: 'Dodaj zatrudnienie',
                 formAction: '/employments/add',
-                navLocation: 'employmentSC'
+                navLocation: 'employmentSC',
+                validationErrors: []
             });
         });
 }
@@ -80,7 +81,8 @@ exports.showEmploymentDetails = (req, res, next) => {
                 allDepts: allDepts,
                 pageTitle: 'Szczegóły departamentu',
                 formAction: '',
-                navLocation: 'employmentSC'
+                navLocation: 'employmentSC',
+                validationErrors: []
             });
         });
 }
@@ -110,7 +112,8 @@ exports.showEmploymentEdit = (req, res, next) => {
                 pageTitle: 'Edycja departamentu',
                 btnLabel: 'Potwierdź edycje',
                 formAction: '/Employments/edit',
-                navLocation: 'employmentSC'
+                navLocation: 'employmentSC',
+                validationErrors: []
             });
         });
 };
@@ -119,7 +122,8 @@ exports.addEmployment = (req, res, next) => {
     const employmentSCData = { ...req.body };
     EmploymentRepository.createEmployment(employmentSCData)
         .then( result => {
-            res.redirect('/Employments');
+            res.redirect('/Employments'),
+          
         });
 };
 
@@ -128,7 +132,9 @@ exports.updateEmployment = (req, res, next) => {
     const employmentSCData = { ...req.body };
     EmploymentRepository.updateEmployment(employmentSCId, employmentSCData)
         .then( result => {
-            res.redirect('/Employments');
+            res.redirect('/Employments'),{
+                validationErrors: [err.details]
+            };
         });
 };
 
@@ -136,7 +142,9 @@ exports.deleteEmployment = (req, res, next) => {
     const employmentSCId = req.params.employmentSCId;
     EmploymentRepository.deleteEmployment(employmentSCId)
         .then( () => {
-            res.redirect('/Employments');
+            res.redirect('/Employments'),{
+                validationErrors: []};
+           
         });
 };
 
@@ -146,6 +154,8 @@ exports.closeEmployment = (req, res, next) => {
     const employmentSCData = { ...req.body };
     EmploymentRepository.closeEmployment(employmentSCId, employmentSCData)
         .then( () => {
-            res.redirect('/Employments');
+            res.redirect('/Employments'),{
+                validationErrors: []
+            };
         });
 };

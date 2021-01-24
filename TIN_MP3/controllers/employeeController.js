@@ -3,6 +3,7 @@ const EmployeeRepository = require('../backend/config/sequelize/EmployeeReposito
 
 
 
+
 exports.showEmployeeList = (req, res, next) => {
     //res.render('pages/employee/employee-list', { navLocation: 'emp'});
     EmployeeRepository.getEmployees()
