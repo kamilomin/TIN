@@ -96,7 +96,7 @@ exports.updateEmployee = (empId, empData) => {
 //            return Promise.reject(err);
 //        });
 
-empData.password = authUtil.hashPassword(newEmpData.password);
+empData.password = authUtil.hashPassword(empData.password);
    return Employee.update(empData, {where: {_id: empId }});
 };
 

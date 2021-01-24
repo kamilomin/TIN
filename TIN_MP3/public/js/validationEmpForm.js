@@ -5,22 +5,26 @@ function validateForm() {
     const firstNameInput = document.getElementById('firstName');
     const lastNameInput = document.getElementById('lastName');
     const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
     const departmentNameInput = document.getElementById('firstName');
     const opisInput = document.getElementById('firstName');
 
     const errorFirstName = document.getElementById('errorFirstName');
     const errorLastName = document.getElementById('errorLastName');
     const errorEmail = document.getElementById('errorEmail');
+    const errorPassword = document.getElementById('errorPassword');
     const errorDepartmentName = document.getElementById('errorDepartmentName');
     const errorOpis = document.getElementById('errorOpis');
     //const error-input = document.getElementById('errorOpis');
-
+    
     const errorsSummary = document.getElementById('errorsSummary');
     
     let valid = true; 
    
-    resetErrors([firstNameInput, lastNameInput, emailInput], [errorFirstName, errorLastName, errorEmail], errorsSummary);
+    resetErrors([firstNameInput, lastNameInput, emailInput, passwordInput], [errorFirstName, errorLastName, errorEmail,errorPassword], errorsSummary);
   
+
+
 
 
     //walidacja imienia
@@ -57,19 +61,23 @@ function validateForm() {
         emailInput.classList.add("error-input");
         errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
     }
-// nie dziala psuje ...
-    // // walidacja nazwy departamentu
-    // if (!checkRequired(departmentNameInput.value)) {
-    //     valid = false;
-    //     departmentNameInput.classList.add("error-input");
-    //     errorDepartmentName.innerText = "Pole jest wymagane";
-    // }
-    // // walidacja opisu
-    // if (!checkRequired(opisInput.value)) {
-    //     valid = false;
-    //     opisInput.classList.add("error-input");
-    //     errorOpis.innerText = "Pole jest wymagane";
-    // }
+    //walidacja Hasla
+    if (!checkRequired(passwordInput.value)) {
+        valid = false;
+        passwordInput.classList.add("error-input");
+        errorPassword.innerText = "Pole jest wymagane";
+    } else if (!checkTextLengthRange(passwordInput.value, 2, 60)) {
+        valid = false;
+        passwordInput.classList.add("error-input");
+        errorPassword.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+    }
+
+
+
+
+
+
+
 
 
 

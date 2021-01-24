@@ -24,7 +24,7 @@ exports.showAddMakeOrderEmployeeForm = (req, res, next) => {
     EmployeeRepository.getEmployees()
         .then(emps => {
             allEmps = emps;
-            return OrderRepository.getDepartments();
+            return OrderRepository.getOrders();
         })
         .then(orders => {
             allOrders = orders;

@@ -39,10 +39,10 @@
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
             <span id="errorLastName" class="errors-text"></span>
                 
-            <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
+            <!-- <label for="date">Date:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="date" name="date" id="date"  />
             <div> <span id="errorDate" class="errors-text"></span> Będzie w krotce, teraz nie uzywac !</div>
-        
+         -->
            
             <label for="password">Pass:<abbr title="required" aria-label="required">*</abbr></label>
             <input type="password" name="password" id="password" placeholder="12345" value="<%= emp.password %>" 
@@ -50,7 +50,7 @@
             <div> <span id="errorPassword" class="errors-text"></span></div>
 
             <label for="accessLevel">accessLevel:<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="accessLevel" name="accessLevel" id="accessLevel"  placeholder="0" value="<%= emp.accessLevel %>"
+            <input type="accessLevel" name="accessLevel" id="accessLevel"  placeholder="0" value="0>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
             <div> <span id="errorAccessLevel" class="errors-text"></span></div>
 

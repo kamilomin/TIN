@@ -10,7 +10,8 @@ exports.showOrderList = (req, res, next) => {
     .then(orders => {
         res.render('pages/Order/Order-list', {
             orders: orders,
-            navLocation: 'order'
+            navLocation: 'order',
+            validationErrors: []
         });
     });
 }
@@ -25,7 +26,8 @@ exports.showAddOrderForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj zamówienie',
         formAction: '/Orders/add',
-        navLocation: 'order'
+        navLocation: 'order',
+        validationErrors: []
     });
 }
 // exports.showOrderDetails = (req, res, next) => {
@@ -40,7 +42,8 @@ exports.showOrderDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły zamówienia',
                 formAction: '',
-                navLocation: 'order'
+                navLocation: 'order',
+                validationErrors: []
             });
         });
 }
@@ -59,7 +62,8 @@ exports.showOrderEdit = (req, res, next) => {
                 pageTitle: 'Edycja zamówienia',
                 btnLabel: 'Potwierdź edycje',
                 formAction: '/Orders/edit',
-                navLocation: 'order'
+                navLocation: 'order',
+                validationErrors: []
             });
         });
 };
@@ -69,6 +73,17 @@ exports.addOrder = (req, res, next) => {
     OrderRepository.createOrder(orderData)
         .then( result => {
             res.redirect('/Orders');
+        })
+        .catch(err => {
+            res.render('pages/order/order-form', {
+                emp: empData,
+                pageTitle: 'Dodawanie zamowienia',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj zamowienie',
+                formAction: '/orders/add',
+                navLocation: 'order',
+                validationErrors: []
+            });
         });
 };
 
@@ -78,6 +93,17 @@ exports.updateOrder = (req, res, next) => {
     OrderRepository.updateOrder(orderId, orderData)
         .then( result => {
             res.redirect('/Orders');
+        })
+        .catch(err => {
+            res.render('pages/order/order-form', {
+                emp: empData,
+                pageTitle: 'Edycja zamowienia',
+                formMode: 'edit',
+                btnLabel: 'Edytuj zamowinie',
+                formAction: '/order/edit',
+                navLocation: 'order',
+                validationErrors: err.details
+            });
         });
 };
 

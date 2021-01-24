@@ -2,7 +2,7 @@
 
 
   <main>
-    <script type="application/javascript" src="/js/validationEmpForm.js"></script>
+    <script type="application/javascript" src="/js/validationDeptForm.js"></script>
       
     <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
         
@@ -30,7 +30,7 @@
 
         <label for="Pensja"> Pensja </label>
         <input type="salary" name="salary" id="salary" placeholder="np. 50 000" value="<%= employmentSC.salary %>" <%= (formMode == 'showDetails' ) ? 'disabled' : ''%>>
-        <div> <span id="errorDate" class="errors-text"></span>zrob walidacje tego i wyzej selektow</div>
+        <div> <span id="errorSalary" class="errors-text"></span></div>
 
         <label for="dateFrom">Data od:<abbr title="required" aria-label="required">*</abbr></label>
         <input type="date" name="dateFrom" id="dateFrom" 

@@ -122,9 +122,18 @@ exports.addEmployment = (req, res, next) => {
     const employmentSCData = { ...req.body };
     EmploymentRepository.createEmployment(employmentSCData)
         .then( result => {
-            res.redirect('/Employments'),
-          
-        });
+            res.redirect('/Employments');
+        })
+            .catch(err => {
+                res.render('pages/employment/employment-form', {
+                    emp: empData,
+                    pageTitle: 'Dodawanie zatrudnienia',
+                    formMode: 'createNew',
+                    formAction: '/employments/add',
+                    navLocation: 'employmentSC',
+                    validationErrors: []
+                });
+            });
 };
 
 exports.updateEmployment = (req, res, next) => {
